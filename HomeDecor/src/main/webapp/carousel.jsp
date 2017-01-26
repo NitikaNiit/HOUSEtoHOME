@@ -11,11 +11,11 @@
   <!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox" width="100%" height="500px">
 		<div class="item active">
-		<img class="First " src="resources/Images/dining.png" alt="First" >
+		<img class="First " src="resources/Images/lanterns.jpg" alt="First" >
 	</div>
 
     <div class="item">
-		<img  class="second" src="resources/Images/dining.png" alt="second" >
+		<img  class="second" src="resources/Images/nb.jpg" alt="second" >
 		<div class="container">
 			<div class="carousel-caption">
 			<p><a class="btn btn-lg btn-success" href="https://www.google.com" role="button">Buy Now</a></p>
@@ -24,7 +24,7 @@
     </div>
 	
 	<div class="item">
-		<img  class="third" src="resources/Images/dining.png" alt="third">
+		<img  class="third" src="resources/Images/dt.jpg" alt="third">
 		<div class="container">
 			<div class="carousel-caption">	
 			<p><a class="btn btn-lg btn-success" href="https://www.google.com" role="button">Buy Now</a></p>
