@@ -8,6 +8,31 @@ public class HomeController {
 	@RequestMapping("/")
 	public String homepage()
 	{
-		return "index";
+		return "home";
 	}
+	@RequestMapping("/HOME")
+	public String home()
+	{
+		return "home";
+	}
+	@RequestMapping("/CONTACT")
+	public String Contactus()
+	{
+		return "contact";
+	}
+	@RequestMapping("/PRODUCTS")
+	public String database()
+	{
+	return "Product";
+	}
+	/*@RequestMapping("/SIGNUP")
+	public String sign()
+	{
+	return "signup";
+	}
+	@RequestMapping("/LOGIN")
+	public String Login()
+	{
+	return "login";
+	}*/
 }

@@ -19,7 +19,7 @@
           <form role="form">
             <div class="form-group">
               <label for="usrname">Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <input type="email" class="form-control" id="usrname" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="psw">Password</label>
@@ -32,9 +32,9 @@
 	      <span><button type="submit"  class="btn btn-info  btn-block"></span> Log In</button>
           </form>
         </div>
-             <div align="center"> <a href="#" align="center">Forgot Password?</a></div>
+             <div align="center"> <a href="#">Forgot Password?</a></div>
         <div class="modal-footer">
-         <div class="register" align="center">Don't have an account? Please<a href="#"> Register</a></div>
+         <div class="register" align="center">Don't have an account? Please<a href="signup"> Register</a></div>
           
         </div>
       </div>
