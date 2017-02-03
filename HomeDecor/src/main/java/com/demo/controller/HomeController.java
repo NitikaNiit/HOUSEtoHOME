@@ -25,6 +25,11 @@ public class HomeController {
 	{
 	return "Product";
 	}
+	@RequestMapping("/View")
+	public String vmore()
+	{
+	return "Viewmore";
+	}
 	/*@RequestMapping("/SIGNUP")
 	public String sign()
 	{

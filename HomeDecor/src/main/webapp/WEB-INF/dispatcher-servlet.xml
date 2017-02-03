@@ -12,8 +12,7 @@
 		id="viewResolver">
 		<property value="/WEB-INF/views/" name="prefix" />
 		<property value=".jsp" name="suffix" />
-		<!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" 
-			/> -->
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> 
 	</bean>
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 </beans>
