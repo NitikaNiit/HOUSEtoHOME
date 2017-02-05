@@ -38,6 +38,7 @@
       <li><a href="#">About</a></li>
       <li><a href="CONTACT" data-toggle="modal" data-target="#contactmodal">Contact Us</a></li>
       <li><a href="PRODUCTS">Products</a></li>
+      <li><a href="produ">Add new Product</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       

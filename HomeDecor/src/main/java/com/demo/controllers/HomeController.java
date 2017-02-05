@@ -1,4 +1,4 @@
-package com.demo.controller;
+package com.demo.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +15,11 @@ public class HomeController {
 	{
 		return "home";
 	}
+	@RequestMapping("/produ")
+	public String display()
+	{
+		return "productform";
+	}
 	@RequestMapping("/CONTACT")
 	public String Contactus()
 	{
@@ -23,7 +28,7 @@ public class HomeController {
 	@RequestMapping("/PRODUCTS")
 	public String database()
 	{
-	return "Product";
+	return "Producttable";
 	}
 	@RequestMapping("/View")
 	public String vmore()
