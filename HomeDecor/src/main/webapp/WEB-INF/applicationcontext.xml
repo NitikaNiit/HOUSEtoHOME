@@ -11,7 +11,7 @@
 
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.h2.Driver" />
-        <property name="url" value="jdbc:h2:tcp://localhost/~/dtbatch15" />
+        <property name="url" value="jdbc:h2:tcp://localhost/~/project" />
         <property name="username" value="sa"/>
         <property name="password" value="sa" />
     </bean>

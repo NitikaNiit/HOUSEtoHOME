@@ -15,11 +15,6 @@ public class HomeController {
 	{
 		return "home";
 	}
-	@RequestMapping("/produ")
-	public String display()
-	{
-		return "productform";
-	}
 	@RequestMapping("/CONTACT")
 	public String Contactus()
 	{

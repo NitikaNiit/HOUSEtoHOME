@@ -1,37 +1,69 @@
 package com.demo.controllers;
+import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.demo.dao.ProductDao;
 import com.demo.model.Product;
+import com.demo.service.CategoryService;
 import com.demo.service.ProductService;
 
 @Controller
 public class ProductController {
 	@Autowired
 private ProductService productService;
-	
+private CategoryService categoryService;
 public ProductController(){
 	System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
 }
-
+//display form
 //http://localhost:8080/project1/admin/product/productform
-@RequestMapping("/admin/product/productform")
+@RequestMapping("/addProduct")
 public String getProductForm(Model model){
 	//Product product = new Product();
+	model.addAttribute("product", new Product());
+	model.addAttribute("categories", categoryService.getCategories());
 	return "productform";
 }
 
-@RequestMapping("/admin/product/addProduct")
-public ModelAndView saveProduct(@ModelAttribute(value="product") Product product){
-	Product newProduct=productService.saveProduct(product);
-//NOT A FINAL VERSION.. 
-	return new ModelAndView("productList","product",newProduct);
+@ModelAttribute("/product")
+public Product newProduct(){
+	/*Product newProduct=productService.saveProduct();
+	 * /NOT A FINAL VERSION.. */
+	return new Product();
 	
 }
+
+@RequestMapping("/addNewProduct")
+public String addProduct(
+		@Valid @ModelAttribute(value="product") Product p, BindingResult result)
+{if(result.hasErrors())
+	return "productform";
+productService.saveProduct(p);
+return null;	
+}
+
+@RequestMapping("/prodlist")
+public String getAllProducts(Model model){
+	List<Product> products= productService.getAllProducts();
+	//Assigning list of products to model attribute products
+	model.addAttribute("productList", products);
+	return "productlist";	
+}
+
+@RequestMapping("/{id}")
+public String viewProduct(@PathVariable int id,Model model){
+	Product product=productService.getProductById(id);
+	model.addAttribute("product",product);
+return "viewproduct";
+}
+	
+	
 }

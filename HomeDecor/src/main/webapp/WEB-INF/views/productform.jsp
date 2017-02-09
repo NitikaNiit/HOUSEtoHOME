@@ -9,49 +9,100 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Product</title>
+<style>
+body { 
+	background-color: ;
+	padding-top:80px;
+	
+	
+	};
+
+</style>
+<script>
+$(function(){
+$('input[name=mfg]').datepicker({
+	format:'YYYY-mm-dd'
+});	
+});
+</script>
 </head>
 <body>
-<div class="container-wrapper">
+
+
 <div class="container">
-<c:url value="addProduct" var="url"></c:url>
-<form:form action="${url }"  commandName="product">
+<div class="row">
+<div class="form-horizontal">
+<form:form action="addNewProduct"  commandName="product" >
 
 <div class="form-group">
 <label for="id"></label>
 <form:hidden  path=""/>
 </div>
 
-<div class="form-group">
-<label for="name">Product Name</label>
+
+<div class="form-group" >
+<label class="col-md-4 control-label"for="name">Product Name</label>
+<div class="col-md-6">
 <form:input path="name" class="form-control"/>
+<form:errors path="name" cssStyle="color:#ff0000"></form:errors>
+</div>
 </div>
 
 <div class="form-group">
-<label for="description">Description</label>
+<label class="col-md-4 control-label"for="description">Description</label>
+<div class="col-md-6">
 <form:input path="description" class="form-control"/>
+<form:errors path="description" cssStyle="color:#ff0000"></form:errors>
+</div>
 </div>
 
 <div class="form-group">
-<label for="price">Price</label>
+<label class="col-md-4 control-label" for="price">Price</label>
+<div class="col-md-6">
 <form:input path="price" class="form-control" />
+<form:errors path="price" cssStyle="color:#ff0000"></form:errors>
+</div>
 </div>
 
 <div class="form-group">
-<label for="quantity">Quantity</label>
+<label class="col-md-4 control-label"for="quantity">Quantity</label>
+<div class="col-md-6">
 <form:input path="quantity" class="form-control"/>
+<form:errors path="quantity" cssStyle="color:#ff0000"></form:errors>
+</div>
 </div>
 
 <div class="form-group">
-<label for="mfg">Mfg Date</label>
+<label class="col-md-4 control-label"for="mfg">Mfg Date</label>
+<div class="col-md-6">
 <form:input path="mfg" class="form-control"/>
+<form:errors path="mfg" cssStyle="color:#ff0000"></form:errors>
+</div>
 </div>
 
-<input type="submit" value="Add Product" class="btn btn-default">
+<div class="form-group">
+<label for="category">Category</label>
+<!-- List<Category> c =model.getAttribute("categories");
+out.println(c.id)
+out.println(c.categoryDetails);
+ -->
+<c:forEach var="c" items="${categories}">
+<form:radiobutton path="category.id" value="${c.id}"/>${c.categoryDetails }
+</c:forEach>
+<form:errors path="category.id" cssStyle="color:#ff0000"></form:errors>
+</div>
+
+<!--  <input type="submit" value="Add Product" class="btn btn-default">-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Add Product</button>
+  </div>
+</div>
 </form:form>
-
+</div>
+</div>
 </div>
 
-
-</div>
 </body>
 </html>
