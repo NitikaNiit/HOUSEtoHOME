@@ -13,6 +13,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="product")
 public class Product {
@@ -38,10 +39,11 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name="cid")
 	private Category category;
-
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -75,11 +77,11 @@ public class Product {
 	public void setMfg(Date mfg) {
 		this.mfg = mfg;
 	}
+	
 	public Category getCategory() {
 		return category;
 	}
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
 }

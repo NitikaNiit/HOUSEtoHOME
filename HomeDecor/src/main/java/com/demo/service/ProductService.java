@@ -9,7 +9,9 @@ public interface ProductService {
 
 	public List<Product> getAllProducts();
 
-	Product getProductById(int id);
+
+
+
 	
 
 }

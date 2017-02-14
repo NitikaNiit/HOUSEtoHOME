@@ -8,21 +8,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.demo.model.Product;
 import com.demo.service.CategoryService;
 import com.demo.service.ProductService;
 
+
 @Controller
 public class ProductController {
 	@Autowired
 private ProductService productService;
+	@Autowired
 private CategoryService categoryService;
-public ProductController(){
-	System.out.println("CREATING INSTANCE FOR PRODUCTCONTROLLER");
-}
 //display form
 //http://localhost:8080/project1/admin/product/productform
 @RequestMapping("/addProduct")
@@ -41,6 +39,8 @@ public Product newProduct(){
 	
 }
 
+
+
 @RequestMapping("/addNewProduct")
 public String addProduct(
 		@Valid @ModelAttribute(value="product") Product p, BindingResult result)
@@ -58,12 +58,6 @@ public String getAllProducts(Model model){
 	return "productlist";	
 }
 
-@RequestMapping("/{id}")
-public String viewProduct(@PathVariable int id,Model model){
-	Product product=productService.getProductById(id);
-	model.addAttribute("product",product);
-return "viewproduct";
-}
 	
 	
 }

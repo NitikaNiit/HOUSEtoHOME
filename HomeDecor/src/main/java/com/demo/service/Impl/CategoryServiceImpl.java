@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import com.demo.dao.CategoryDao;
 import com.demo.model.Category;
 import com.demo.service.CategoryService;
+
 @Service
-public class CategoryServiceImpl implements CategoryService {
-	@Autowired
-	private CategoryDao categoryDao;
-	public List<Category> getCategories() {
-		// TODO Auto-generated method stub
-		return categoryDao.getCategories();
-	}
+public class CategoryServiceImpl implements CategoryService{
+@Autowired
+private CategoryDao categoryDao;
+
+public List<Category> getCategories() {
+	// TODO Auto-generated method stub
+	return categoryDao.getCategories();
+}
+
+	
 }

@@ -7,7 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 @Entity
+@Table(name="category")
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -15,6 +18,7 @@ public class Category {
 	private String categoryDetails;
 	@OneToMany(mappedBy="category")
 	private List<Product> products;
+	
 	public int getId() {
 		return id;
 	}
@@ -24,8 +28,8 @@ public class Category {
 	public String getCategoryDetails() {
 		return categoryDetails;
 	}
-	public void setCategoryDetails(String categorydetails) {
-		this.categoryDetails = categorydetails;
+	public void setCategoryDetails(String categoryDetails) {
+		this.categoryDetails = categoryDetails;
 	}
 	public List<Product> getProducts() {
 		return products;
@@ -33,11 +37,11 @@ public class Category {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-
-	@Override
-	public String toString(){
-		return this.id + " " + this.categoryDetails;
-	}
 	
+	@Override
+	public String toString() {
+		return this.id + " " + this.categoryDetails;
+		
+	}
 	
 }

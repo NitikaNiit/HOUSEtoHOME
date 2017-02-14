@@ -26,9 +26,10 @@
                 <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
-        <property name="annotatedClasses"><!--  Entities -->
+        <property name="packagesToScan"><!--  Entities -->
             <list>
-               <value>com.demo.model.Product</value>
+               <value>com.demo.model</value>
+               
             </list>
         </property>
         

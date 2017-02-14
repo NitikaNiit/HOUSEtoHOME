@@ -80,16 +80,19 @@ $('input[name=mfg]').datepicker({
 </div>
 </div>
 
+
 <div class="form-group">
-<label for="category">Category</label>
-<!-- List<Category> c =model.getAttribute("categories");
+<label class="col-md-4 control-label" for="category">Category</label>
+<div class="col-md-6">
+
+<!--  List<Category> c =model.getAttribute("categories");
 out.println(c.id)
-out.println(c.categoryDetails);
- -->
+out.println(c.categoryDetails);-->
+
 <c:forEach var="c" items="${categories}">
 <form:radiobutton path="category.id" value="${c.id}"/>${c.categoryDetails }
 </c:forEach>
-<form:errors path="category.id" cssStyle="color:#ff0000"></form:errors>
+</div>
 </div>
 
 <!--  <input type="submit" value="Add Product" class="btn btn-default">-->
