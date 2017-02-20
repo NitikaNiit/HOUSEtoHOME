@@ -40,6 +40,18 @@ public class Product {
 	@JoinColumn(name="cid")
 	private Category category;
 	
+	@ManyToOne
+	@JoinColumn(name="sid")
+	private Supplier supplier;
+	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
 	public int getId() {
 		return id;
 	}

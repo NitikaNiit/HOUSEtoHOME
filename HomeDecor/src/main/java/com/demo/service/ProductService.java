@@ -8,10 +8,5 @@ public interface ProductService {
 	void saveProduct(Product p);
 
 	public List<Product> getAllProducts();
-
-
-
-
 	
-
 }

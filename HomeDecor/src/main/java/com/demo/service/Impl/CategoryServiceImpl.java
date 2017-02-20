@@ -19,5 +19,10 @@ public List<Category> getCategories() {
 	return categoryDao.getCategories();
 }
 
+public void saveCategory(Category c) {
+	// TODO Auto-generated method stub
+	categoryDao.saveCategory(c);
+}
+
 	
 }

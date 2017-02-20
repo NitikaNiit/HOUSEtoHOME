@@ -7,10 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
 
 @Entity
-@Table(name="category")
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -40,8 +39,7 @@ public class Category {
 	
 	@Override
 	public String toString() {
-		return this.id + " " + this.categoryDetails;
-		
-	}
-	
+	  		return this.id + " " + this.categoryDetails;
+	 		
+	  	}
 }

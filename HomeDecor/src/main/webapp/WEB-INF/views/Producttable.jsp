@@ -84,7 +84,7 @@ body {
     <tbody>
       <tr ng-repeat="item in product| orderBy:sortType:sortReverse | filter:searchitem">
 
-        <td >{{ item.pid }}</td>
+        <td >{{item.pid}}</td>
         <td><img src="<c:url value="/resources/Images/p1.jpg" />"/></td>
         <td>{{ item.item }}</td>
         <td>{{ item.price }}</td>
@@ -104,6 +104,8 @@ body {
   </p>
   </div>
   </div>
+</div>
+</div>
 </div>
 </body>
 </html>

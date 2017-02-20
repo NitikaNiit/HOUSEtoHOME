@@ -38,8 +38,6 @@ private SessionFactory sessionFactory;
 		return products;
 	}
 
-
-	
 	
 
 	

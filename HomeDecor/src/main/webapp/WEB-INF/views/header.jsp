@@ -8,6 +8,10 @@
 <script src="resources/Bootstrap/css/bootstrap.min.css"></script>
 <script src="resources/Bootstrap/js/bootstrap.min.js"></script>-->
 
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -23,11 +27,10 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="resources/css/hero.css">
-<link rel="stylesheet" href="resources/css/login.css">
+
 
 
 <%@include file="login.jsp"%>
-<%@include file="signup.jsp"%>
 <%@include file="contact.jsp"%>
 
 </head>
@@ -52,18 +55,40 @@
 						<li><a href="CONTACT" data-toggle="modal"
 							data-target="#contactmodal">Contact Us</a></li>
 						<li><a href="PRODUCTS">Products</a></li>
-						<li><a href="addProduct">Add new Product</a></li>
-						<li><a href="prodlist">Browse all Products</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="addProduct">Add Product</a></li>
+								<li><a href="addCategory">Add Category</a></li>
+								<li><a href="addSupplier">Add Supplier</a></li>
+							</ul></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">VIEW <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="prodlist">View all Products</a></li>
+								<li><a href="suplist">View all Suppliers</a></li>
+								<li><a href="catlist">View all Categories</a></li>
+							</ul></li>
+
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-
-						<li><a href="SIGNUP" data-toggle="modal"
-							data-target="#signupmodal"><span
-								class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="LOGIN" data-toggle="modal"
-							data-target="#loginmodal"><span
-								class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						<c:if test="${pageContext.request.userPrincipal.name != null}">
+						<li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>	 
+						<li><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+						
+						<c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+						<li><a href="<c:url value="/admin"/>">Admin</a></li>
+						</c:if>	 
+						
+						</c:if>
+						
+						<c:if test="${pageContext.request.userPrincipal.name == null}">
+						<li><a href="<c:url value="/signup"/>" >
+							<span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#loginmodal">
+							<span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						<li><a href="www.google.com"><i class="fa fa-search"></i></a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>

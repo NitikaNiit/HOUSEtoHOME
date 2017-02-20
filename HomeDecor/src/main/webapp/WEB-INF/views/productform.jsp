@@ -102,6 +102,8 @@ out.println(c.categoryDetails);-->
     <button id="submit" name="submit" class="btn btn-primary">Add Product</button>
   </div>
 </div>
+
+
 </form:form>
 </div>
 </div>

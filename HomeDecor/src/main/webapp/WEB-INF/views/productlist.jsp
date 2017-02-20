@@ -17,7 +17,8 @@ body {
 </head>
 <body>
 	<div class="container">
-		<table class="table table-striped">
+	<h3>Product List</h3>
+		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
 					<th>PID</th>
@@ -26,6 +27,7 @@ body {
 					<th>Price</th>
 					<th>Quantity</th>
 					<th>Category</th>
+					<th>Supplier</th>
 				</tr>
 			</thead>
 			<c:forEach var="pd" items="${productList}">
@@ -36,8 +38,8 @@ body {
 					<td>${pd.price}</td>
 					<td>${pd.quantity}</td>
 					<td>${pd.category.categoryDetails}</td>
-					<td><a href="viewprod"><span
-							class="glyphicon glyphicon-info-sign"></span></a></td>
+					<td>${pd.supplier.supname}</td>
+					 							
 				</tr>
 			</c:forEach>
 		</table>
