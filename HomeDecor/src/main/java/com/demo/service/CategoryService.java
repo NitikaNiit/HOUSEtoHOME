@@ -7,7 +7,7 @@ import com.demo.model.Category;
 public interface CategoryService {
 	public List<Category> getCategories();
 
-	void saveCategory(Category c);
+	Category saveCategory(Category category);
 
 
 	

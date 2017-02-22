@@ -1,14 +1,13 @@
 package com.demo.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
 
-@SuppressWarnings("serial")
+
 @Entity
-public class ShippingAddress implements Serializable{
+public class ShippingAddress {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int shipId;
     private String streetName;
     private String houseNumber;
@@ -17,8 +16,9 @@ public class ShippingAddress implements Serializable{
     private String country;
     private String zipCode;
 
-    @OneToOne
-    private Users users;
+    @OneToOne(mappedBy="shippingAddress", cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+	private Customer customer;
+
     
     public int getShipId() {
   		return shipId;
@@ -76,12 +76,6 @@ public class ShippingAddress implements Serializable{
   		this.zipCode = zipCode;
   	}
 
-  	public Users getUsers() {
-  		return users;
-  	}
-
-  	public void setUsers(Users users) {
-  		this.users = users;
-  	}
+  
     
 }

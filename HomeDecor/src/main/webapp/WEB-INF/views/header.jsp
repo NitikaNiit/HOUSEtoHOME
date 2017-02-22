@@ -29,8 +29,7 @@
 <link rel="stylesheet" href="resources/css/hero.css">
 
 
-
-<%@include file="login.jsp"%>
+<link rel="stylesheet" href="resources/css/login.css">
 <%@include file="contact.jsp"%>
 
 </head>
@@ -58,7 +57,7 @@
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="addProduct">Add Product</a></li>
+								<li><a href="admin/addProduct">Add Product</a></li>
 								<li><a href="addCategory">Add Category</a></li>
 								<li><a href="addSupplier">Add Supplier</a></li>
 							</ul></li>
@@ -85,7 +84,7 @@
 						<c:if test="${pageContext.request.userPrincipal.name == null}">
 						<li><a href="<c:url value="/signup"/>" >
 							<span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="#" data-toggle="modal" data-target="#loginmodal">
+						<li><a href="<c:url value="/login"/>">
 							<span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 						<li><a href="www.google.com"><i class="fa fa-search"></i></a></li>
 						</c:if>

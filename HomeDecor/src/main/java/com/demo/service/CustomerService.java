@@ -7,6 +7,6 @@ import com.demo.model.Customer;
 public interface CustomerService {
 	public List<Customer> getCustomers();
 
-	void saveCustomer(Customer c);
+	Customer saveCustomer(Customer customer);
 
 }

@@ -18,9 +18,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.getCustomers();
 	}
 
-	public void saveCustomer(Customer c) {
+	public Customer saveCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		customerDao.saveCustomer(c);
+		return customerDao.saveCustomer(customer);
 	}
 
 }

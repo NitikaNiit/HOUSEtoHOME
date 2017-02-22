@@ -5,7 +5,7 @@ import com.demo.model.Product;
 
 public interface ProductService {
 
-	void saveProduct(Product p);
+	Product saveProduct(Product product);
 
 	public List<Product> getAllProducts();
 	

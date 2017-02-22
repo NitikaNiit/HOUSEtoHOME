@@ -20,31 +20,6 @@ private String phonenumber;
 @OneToOne
 @JoinColumn(name="usersId")
 private Users users;
-
-public BillingAddress getBillingAddress() {
-	return billingAddress;
-}
-
-public void setBillingAddress(BillingAddress billingAddress) {
-	this.billingAddress = billingAddress;
-}
-
-public ShippingAddress getShippingAddress() {
-	return shippingAddress;
-}
-
-public void setShippingAddress(ShippingAddress shippingAddress) {
-	this.shippingAddress = shippingAddress;
-}
-
-public Users getUsers() {
-	return users;
-}
-
-public void setUsers(Users users) {
-	this.users = users;
-}
-
 @OneToOne
 @JoinColumn(name="billsId")
 private BillingAddress billingAddress;
@@ -82,6 +57,29 @@ public String getPhonenumber() {
 }
 public void setPhonenumber(String phonenumber) {
 	this.phonenumber = phonenumber;
+}
+public BillingAddress getBillingAddress() {
+	return billingAddress;
+}
+
+public void setBillingAddress(BillingAddress billingAddress) {
+	this.billingAddress = billingAddress;
+}
+
+public ShippingAddress getShippingAddress() {
+	return shippingAddress;
+}
+
+public void setShippingAddress(ShippingAddress shippingAddress) {
+	this.shippingAddress = shippingAddress;
+}
+
+public Users getUsers() {
+	return users;
+}
+
+public void setUsers(Users users) {
+	this.users = users;
 }
 
 }

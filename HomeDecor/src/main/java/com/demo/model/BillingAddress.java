@@ -1,16 +1,11 @@
 package com.demo.model;
 
-
-import java.io.Serializable;
-
 import javax.persistence.*;
-
-@SuppressWarnings("serial")
 @Entity
-public class BillingAddress implements Serializable{
+public class BillingAddress {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int billsId;
 	private String streetName;
     private String houseNumber;
@@ -19,9 +14,9 @@ public class BillingAddress implements Serializable{
     private String country;
     private String zipCode;
 
-    @OneToOne
-    private Users user;
-    
+	@OneToOne(mappedBy="billingAddress", cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+	private Customer customer;
+
 
     public int getBillsId() {
 		return billsId;
@@ -79,13 +74,7 @@ public class BillingAddress implements Serializable{
 		this.zipCode = zipCode;
 	}
 
-	public Users getUser() {
-		return user;
-	}
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
 
     
 }

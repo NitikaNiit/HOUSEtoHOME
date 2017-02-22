@@ -10,8 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.demo.model.Category;
-import com.demo.model.Product;
-import com.demo.model.Supplier;
 import com.demo.service.CategoryService;
 
 @Controller
@@ -37,10 +35,10 @@ public class CategoryController {
 	}
 
 	@RequestMapping("/addNewCategory")
-	public String addCategory(@Valid @ModelAttribute(value = "category") Category c, BindingResult result) {
+	public String addCategory(@Valid @ModelAttribute(value = "category") Category category, BindingResult result) {
 		if (result.hasErrors())
 			return "categoryform";
-		categoryService.saveCategory(c);
+		categoryService.saveCategory(category);
 		return null;
 	}
 	

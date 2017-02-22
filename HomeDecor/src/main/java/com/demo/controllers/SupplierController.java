@@ -34,11 +34,11 @@ public class SupplierController {
 	}
 
 	@RequestMapping("/addNewSupplier")
-	public String addSupplier(@Valid @ModelAttribute(value = "supplier") Supplier s, BindingResult result) {
+	public String addSupplier(@Valid @ModelAttribute(value = "supplier") Supplier supplier, BindingResult result) {
 		if (result.hasErrors())
 			return "supplierform";
-		supplierService.saveSupplier(s);
-		return null;
+		supplierService.saveSupplier(supplier);
+		return "redirect:/getAllSuppliers";
 	}
 	
 	@RequestMapping("/suplist")

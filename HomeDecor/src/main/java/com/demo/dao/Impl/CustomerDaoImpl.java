@@ -24,14 +24,14 @@ public class CustomerDaoImpl implements CustomerDao {
 		return customers;
 	}
 
-	public void saveCustomer(Customer c) {
-		System.out.println(c.getId());
+	public Customer saveCustomer(Customer customer) {
+		System.out.println(customer.getId());
 		Session session=sessionFactory.openSession();
-		session.save(c); //insert into customer values (.....)
+		session.save(customer); //insert into customer values (.....)
 		session.flush();
 		session.close();
-		System.out.println(c.getId());
-		return;	
+		System.out.println(customer.getId());
+		return customer;	
 	}
 
 	

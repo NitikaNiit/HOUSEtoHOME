@@ -20,14 +20,14 @@ private SessionFactory sessionFactory;
 		System.out.println("CREATING INSTANCE FOR PRODUCTDAOIMPL");
 	}
 	
-	public void saveProduct(Product p) {
-		System.out.println(p.getId());
+	public Product saveProduct(Product product) {
+		System.out.println(product.getId());
 		Session session=sessionFactory.openSession();
-		session.save(p); //insert into product values (.....)
+		session.save(product); //insert into product values (.....)
 		session.flush();
 		session.close();
-		System.out.println(p.getId());
-		return;	
+		System.out.println(product.getId());
+		return product;	
 	}
 
 	public List<Product> getAllProducts() {

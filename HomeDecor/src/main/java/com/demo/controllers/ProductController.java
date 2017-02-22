@@ -17,6 +17,7 @@ import com.demo.service.ProductService;
 import com.demo.service.SupplierService;
 
 @Controller
+@RequestMapping("/admin")
 public class ProductController {
 	@Autowired
 	private ProductService productService;
@@ -35,7 +36,7 @@ public class ProductController {
 		return "productform";
 	}
 
-	@ModelAttribute("/product")
+	@ModelAttribute("product")
 	public Product newProduct() {
 		/*
 		 * Product newProduct=productService.saveProduct(); /NOT A FINAL
@@ -46,11 +47,11 @@ public class ProductController {
 	}
 
 	@RequestMapping("/addNewProduct")
-	public String addProduct(@Valid @ModelAttribute(value = "product") Product p, BindingResult result) {
+	public String addProduct(@Valid @ModelAttribute("product") Product product, BindingResult result) {
 		if (result.hasErrors())
 			return "productform";
-		productService.saveProduct(p);
-		return null;
+		productService.saveProduct(product);
+		return "redirect:/prodlist";
 	}
 
 	@RequestMapping("/prodlist")

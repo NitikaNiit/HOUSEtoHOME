@@ -19,8 +19,8 @@ public ProductServiceImpl(){
 		
 }
 
-public void saveProduct(Product p){
-	productDao.saveProduct(p);
+public Product saveProduct(Product product){
+	return productDao.saveProduct(product);
 //call the Dao method using productDao variable
 }
 

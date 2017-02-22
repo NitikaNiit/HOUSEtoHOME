@@ -38,7 +38,7 @@ public class HomeController {
 
 
 	
-	/*@RequestMapping("/login") 
+	@RequestMapping("/login") 
 	public String login( 
 			@RequestParam(value="error", required = false) 
             String error, 
@@ -51,7 +51,7 @@ public class HomeController {
 		if (logout !=null){ model.addAttribute("msg", "You have been logged out successfully"); 
         } 
  
-		return "login"; 
-		} */
+		return "loginform"; 
+		} 
 	
 }	

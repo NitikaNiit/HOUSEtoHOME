@@ -7,7 +7,7 @@ import com.demo.model.Category;
 public interface CategoryDao {
 	List<Category> getCategories();
 
-	void saveCategory(Category c);
+	Category saveCategory(Category category);
 
 	
 }
