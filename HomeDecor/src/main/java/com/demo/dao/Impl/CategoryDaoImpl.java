@@ -25,10 +25,10 @@ public class CategoryDaoImpl implements CategoryDao {
 		return categories;
 	}
 
-	public Category saveCategory(Category category) {
+	public Category saveOrUpdateCategory(Category category) {
 		System.out.println(category.getId());
 		Session session=sessionFactory.openSession();
-		session.save(category); //insert into category values (.....)
+		session.saveOrUpdate(category); //insert into category values (.....)
 		session.flush();
 		session.close();
 		System.out.println(category.getId());

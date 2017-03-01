@@ -19,8 +19,8 @@ public SupplierServiceImpl(){
 		
 }
 
-public Supplier saveSupplier(Supplier supplier){
-	return supplierDao.saveSupplier(supplier);
+public Supplier saveOrUpdateSupplier(Supplier supplier){
+	return supplierDao.saveOrUpdateSupplier(supplier);
 //call the Dao method using productDao variable
 }
 

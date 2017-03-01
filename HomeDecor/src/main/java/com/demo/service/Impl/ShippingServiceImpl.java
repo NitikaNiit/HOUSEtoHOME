@@ -1,7 +1,5 @@
 package com.demo.service.Impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +12,14 @@ public class ShippingServiceImpl implements ShippingService {
 	@Autowired
 private ShippingDao shippingDao;
 	
-	public List<ShippingAddress> getShippingAddress() {
+	/*public List<ShippingAddress> getShippingAddress() {
 		// TODO Auto-generated method stub
 		return shippingDao.getShippingAddress();
-	}
+	}*/
 
-	public ShippingAddress saveShippingAddress(ShippingAddress shipping) {
+	public ShippingAddress saveOrUpdateShippingAddress(ShippingAddress shipping) {
 		// TODO Auto-generated method stub
-		return shippingDao.saveShippingAddress(shipping);
+		return shippingDao.saveOrUpdateShippingAddress(shipping);
 	}
 
 	

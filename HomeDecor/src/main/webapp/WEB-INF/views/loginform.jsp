@@ -24,14 +24,14 @@ body {
 <div class="form-group">
 <label class=" col-md-4 control-label" for="username">Username: </label>
 <div class="col-md-4">
-<input type="text" id="username" name="username" class="form-control"/>
+<input type="text" id="username"  name="username" class="form-control"/>
 </div>
 </div>
 
 <div class="form-group">
 <label class="col-md-4 control-label" for="password">Password:</label>
 <div class="col-md-4">
-<input type="password" id="password" name="password" class="form-control"/>
+<input type="password" id="password"  name="password" class="form-control"/>
 </div>
 </div>
  <div class="form-group">

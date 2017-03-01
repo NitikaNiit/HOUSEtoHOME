@@ -20,11 +20,11 @@ public class SupplierDaoImpl implements SupplierDao {
 	public SupplierDaoImpl(){
 		System.out.println("CREATING INSTANCE FOR SUPPLIERDAOIMPL");
 	}
-	public Supplier saveSupplier(Supplier supplier) {
+	public Supplier saveOrUpdateSupplier(Supplier supplier) {
 		// TODO Auto-generated method stub
 		System.out.println(supplier.getSid());
 		Session session=sessionFactory.openSession();
-		session.save(supplier); //insert into session values (.....)
+		session.saveOrUpdate(supplier); //insert into session values (.....)
 		session.flush();
 		session.close();
 		System.out.println(supplier.getSid());

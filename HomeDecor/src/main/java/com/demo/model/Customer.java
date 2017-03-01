@@ -16,10 +16,26 @@ private String firstname;
 private String lastname;
 private String email;
 private String phonenumber;
+private String username;
+private String password;
 
-@OneToOne
-@JoinColumn(name="usersId")
-private Users users;
+
+public String getUsername() {
+	return username;
+}
+
+public void setUsername(String username) {
+	this.username = username;
+}
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
+}
+
 @OneToOne
 @JoinColumn(name="billsId")
 private BillingAddress billingAddress;
@@ -31,9 +47,11 @@ private ShippingAddress shippingAddress;
 public int getId() {
 	return id;
 }
+
 public void setId(int id) {
 	this.id = id;
 }
+
 public String getFirstname() {
 	return firstname;
 }
@@ -74,12 +92,6 @@ public void setShippingAddress(ShippingAddress shippingAddress) {
 	this.shippingAddress = shippingAddress;
 }
 
-public Users getUsers() {
-	return users;
-}
 
-public void setUsers(Users users) {
-	this.users = users;
-}
 
 }

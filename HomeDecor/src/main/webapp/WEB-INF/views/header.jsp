@@ -26,10 +26,7 @@
 	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="resources/css/hero.css">
-
-
-<link rel="stylesheet" href="resources/css/login.css">
+<link rel="stylesheet" href="resources/css/heroslide.css">
 <%@include file="contact.jsp"%>
 
 </head>
@@ -57,7 +54,8 @@
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="admin/addProduct">Add Product</a></li>
+								<!-- <li><a href="admin/addProduct">Add Product</a></li> -->
+								<li><a href="addProduct">Add Product</a></li>
 								<li><a href="addCategory">Add Category</a></li>
 								<li><a href="addSupplier">Add Supplier</a></li>
 							</ul></li>

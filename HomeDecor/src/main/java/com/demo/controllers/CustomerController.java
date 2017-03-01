@@ -6,22 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.demo.model.BillingAddress;
 import com.demo.model.Customer;
-import com.demo.model.ShippingAddress;
-import com.demo.model.Users;
 import com.demo.service.CustomerService;
 
 @Controller
 public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
-	
-	
-	
-	@RequestMapping("/signup")
+		
+	/*@RequestMapping("/signup")
 	public String signUp(){
 		return "Signupform";
 		}
@@ -29,23 +22,31 @@ public class CustomerController {
 	@ModelAttribute("customer")
 	public Customer createCustomer(){
 		Customer customer = new Customer();
+		Users users = new Users();
+		Authorities authority = new Authorities();
 		BillingAddress billingAddress = new BillingAddress();
 		ShippingAddress shippingAddress= new ShippingAddress();
+		customer.setAuthority(authority);
+		customer.setUsers(users);
 		customer.setBillingAddress(billingAddress);
 		customer.setShippingAddress(shippingAddress);
 		return customer;
 		
 	}
 	
-	@RequestMapping("/registerCustomer")
+	@RequestMapping("/signup")
 	public String registerCustomer(Model model){
 		Customer customer = new Customer();
+		Users users = new Users();
+		Authorities authority = new Authorities();
 		BillingAddress billingAddress = new BillingAddress();
 		ShippingAddress shippingAddress= new ShippingAddress();
+		customer.setUsers(users);
+	   customer.setAuthority(authority);
 		customer.setBillingAddress(billingAddress);
 		customer.setShippingAddress(shippingAddress);
 		model.addAttribute("customer", customer);
-		return "signUp";
+		return "Signupform";
 	}
 	
 	@RequestMapping(value= "/registerCustomer", method=RequestMethod.POST)
@@ -53,19 +54,20 @@ public class CustomerController {
 	if(result.hasErrors()){
 		return "Signupform";
 			}
+	customer.getAuthority().setRole("ROLE_USER");
+	customer.getUsers().setEnabled(true);
 	customerService.saveCustomer(customer);
-	/*customer.setEnabled(true);*/
-	return "redirect:/registerConfirmed";
+	return "registerConfirmed";
 	
 	}
 	
-}
+}*/
 	
-	/*@RequestMapping("/signup")
+	@RequestMapping("/signup")
 	public String getRegistrationForm(Model model){
 		model.addAttribute("customer",new Customer());
-		model.addAttribute("customers", customerService.getCustomers());
-		return "Signupform";
+		//model.addAttribute("customers", customerService.getCustomers());
+		return "signUpForm";
 
 	}
 	@ModelAttribute("customer")
@@ -74,13 +76,15 @@ public class CustomerController {
 		return new Customer();
 
 	}
+	//we use  @modelattribute(command name) to read the values that user has entered in the jsp page.
 	@RequestMapping("/registerCustomer")
-	public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result) {
+	public String addCustomer(@ModelAttribute("customer") Customer customer, BindingResult result) {
 		
-		customerService.saveCustomer(customer);
-		return "redirect:/getAllCustomers";
-	}*/
+		customerService.saveOrUpdateCustomer(customer);
+		return "redirect:/login";
+	}
 	
+}
 
 
 

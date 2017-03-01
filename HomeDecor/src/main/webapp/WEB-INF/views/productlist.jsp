@@ -21,6 +21,7 @@ body {
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
+					<th>Image</th>
 					<th>PID</th>
 					<th>Product Name</th>
 					<th>Description</th>
@@ -32,6 +33,10 @@ body {
 			</thead>
 			<c:forEach var="pd" items="${productList}">
 				<tr>
+				<td>
+				<c:url var="src" value="resources/images/${pd.id }.jpg"></c:url>
+				<img class="img-thumbnail" src="${src }" width="80" height="80" />
+				</td>
 					<td>${pd.id}</td>
 					<td>${pd.name}</td>
 					<td>${pd.description}</td>
@@ -39,7 +44,20 @@ body {
 					<td>${pd.quantity}</td>
 					<td>${pd.category.categoryDetails}</td>
 					<td>${pd.supplier.supname}</td>
-					 							
+					<td>
+					<c:url var="url" value="viewproduct/${pd.id }"></c:url>
+					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
+					</td>
+					<td>
+					<c:url var="delete" value="deleteproduct/${pd.id }"></c:url>
+					<a href="${delete }"><span class="glyphicon glyphicon-remove"></span></a>
+					</td>
+					<td>
+					<c:url var="edit" value="editform/${pd.id }"></c:url>
+					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
+				    </td>
+					
+									
 				</tr>
 			</c:forEach>
 		</table>

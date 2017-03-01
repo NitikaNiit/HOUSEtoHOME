@@ -23,6 +23,7 @@ public class SupplierController {
 	public String getSupplierForm(Model model) {
 		
 		model.addAttribute("supplier", new Supplier());
+		model.addAttribute("suppliers", supplierService.getAllSuppliers());
 		return "supplierform";
 	}
 
@@ -37,7 +38,7 @@ public class SupplierController {
 	public String addSupplier(@Valid @ModelAttribute(value = "supplier") Supplier supplier, BindingResult result) {
 		if (result.hasErrors())
 			return "supplierform";
-		supplierService.saveSupplier(supplier);
+		supplierService.saveOrUpdateSupplier(supplier);
 		return "redirect:/getAllSuppliers";
 	}
 	

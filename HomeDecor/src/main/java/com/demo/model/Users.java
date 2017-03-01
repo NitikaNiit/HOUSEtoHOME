@@ -14,8 +14,6 @@ public class Users {
 	private String password;
 	private Boolean enabled;
 	
-	@OneToOne(mappedBy="users" , cascade= CascadeType.ALL, fetch=FetchType.EAGER)
-	private Customer customer;
 
 	public int getUsersId() {
 		return usersId; 

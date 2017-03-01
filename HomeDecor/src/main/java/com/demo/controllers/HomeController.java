@@ -5,8 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.demo.model.Customer;
-
 @Controller
 public class HomeController {
 	@RequestMapping("/")
@@ -51,7 +49,7 @@ public class HomeController {
 		if (logout !=null){ model.addAttribute("msg", "You have been logged out successfully"); 
         } 
  
-		return "loginform"; 
+		return "NewLoginForm"; 
 		} 
 	
 }	

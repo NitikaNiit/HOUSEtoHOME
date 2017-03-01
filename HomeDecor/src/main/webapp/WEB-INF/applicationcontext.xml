@@ -44,7 +44,7 @@
 <security:form-login login-page="/login" 
 default-target-url="/" 
  authentication-failure-url="/login?error" 
-username-parameter="username" password-parameter="password" /> 
+username-parameter="form-username" password-parameter="form-password" /> 
 <security:logout 
 logout-success-url="/login?logout"/> 
 </security:http> 
@@ -53,7 +53,7 @@ logout-success-url="/login?logout"/>
 <security:authentication-provider>
 <!-- <security:password-encoder hash="bcrypt" />  -->
 <security:jdbc-user-service data-source-ref="dataSource" 
-authorities-by-username-query="SELECT username, authority FROM authorities WHERE username = ?" 
+authorities-by-username-query="SELECT username, role FROM authorities WHERE username = ?" 
 users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?"/> 
 </security:authentication-provider> 
 </security:authentication-manager> 

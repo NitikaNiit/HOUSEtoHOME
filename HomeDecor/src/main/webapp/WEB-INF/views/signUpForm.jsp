@@ -21,7 +21,7 @@ body {
 <div class="form-horizontal">
 <c:url var="url" value="registerCustomer"></c:url>
 
-<form:form action="${url }" commandName="customer">
+<form:form action="${url }" commandName="customer" >
 
 <H4><b><u>PERSONAL DETAILS</u></b></H4>
 <div class="form-group">
@@ -53,16 +53,16 @@ body {
 </div>
 
 <div class="form-group">
-<form:label class="col-md-4 control-label"  path="users.username">USERNAME</form:label>
+<form:label class="col-md-4 control-label"  path="username">USERNAME</form:label>
 <div class="col-md-6">
-<form:input path="users.username" class="form-control"></form:input>
+<form:input path="username" class="form-control"></form:input>
 </div>
 </div>
 
 <div class="form-group">
-<form:label class="col-md-4 control-label"  path="users.password">PASSWORD</form:label>
+<form:label class="col-md-4 control-label"  path="password">PASSWORD</form:label>
 <div class="col-md-6">
-<form:input path="users.password" type="password" class="form-control"></form:input>
+<form:input path="password" type="password" class="form-control"></form:input>
 </div>
 </div>
 <br>

@@ -5,8 +5,9 @@ import java.util.List;
 import com.demo.model.Product;
 
 public interface ProductDao {
-	Product saveProduct(Product product);
-
+	Product saveOrUpdateProduct(Product product);
+	
 	 List<Product> getAllProducts();
-
+	 Product getProductById(int id);
+	 void deleteProduct(int id);
 }

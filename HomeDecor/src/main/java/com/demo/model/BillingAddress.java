@@ -14,10 +14,7 @@ public class BillingAddress {
     private String country;
     private String zipCode;
 
-	@OneToOne(mappedBy="billingAddress", cascade= CascadeType.ALL, fetch=FetchType.EAGER)
-	private Customer customer;
-
-
+ 
     public int getBillsId() {
 		return billsId;
 	}

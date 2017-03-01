@@ -5,8 +5,9 @@ import com.demo.model.Product;
 
 public interface ProductService {
 
-	Product saveProduct(Product product);
-
-	public List<Product> getAllProducts();
+	Product saveOrUpdateProduct(Product product);
 	
+		public List<Product> getAllProducts();
+		Product getProductById(int id);
+		void deleteProduct(int id);
 }

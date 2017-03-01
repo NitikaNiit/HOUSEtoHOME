@@ -7,7 +7,8 @@
   }
 	body {
     background-color: #d9d9d9;
-	}
+    }
+   
 	 </style>
  <div class="container-fluid hero-slide">
 <div class="row">

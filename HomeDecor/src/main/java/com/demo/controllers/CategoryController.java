@@ -38,7 +38,7 @@ public class CategoryController {
 	public String addCategory(@Valid @ModelAttribute(value = "category") Category category, BindingResult result) {
 		if (result.hasErrors())
 			return "categoryform";
-		categoryService.saveCategory(category);
+		categoryService.saveOrUpdateCategory(category);
 		return null;
 	}
 	

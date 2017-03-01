@@ -1,7 +1,5 @@
 package com.demo.service.Impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +11,16 @@ public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerDao customerDao;
 
-	public List<Customer> getCustomers() {
+	/*public List<Customer> getCustomers() {
 		// TODO Auto-generated method stub
 		return customerDao.getCustomers();
-	}
+	}*/
 
-	public Customer saveCustomer(Customer customer) {
+	public Customer saveOrUpdateCustomer(Customer customer) {
 		// TODO Auto-generated method stub
-		return customerDao.saveCustomer(customer);
+		return customerDao.saveOrUpdateCustomer(customer);
 	}
 
+	
+	
 }

@@ -14,8 +14,10 @@ public class Authorities {
 	 
 	 @Column(unique=true)
 	 private String username;  
-	 private String authority; 
+	 private String role; 
+	
 
+	 
 	public int getAuthoritiesId() {  	
 		return authoritiesId; 
 	    } 
@@ -30,14 +32,16 @@ public class Authorities {
 
 	public void setUsername(String username) {  
 		this.username = username; 
-	    } 
+	    }
 
-	public String getAuthority() {  
-		return authority; 
-	    } 
+	public String getRole() {
+		return role;
+	}
 
-	public void setAuthority(String authority) {  
-		this.authority = authority; 
-	    } 
+	public void setRole(String role) {
+		this.role = role;
+	} 
+
+	
 	}
 

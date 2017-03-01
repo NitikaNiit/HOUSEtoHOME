@@ -9,10 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="product")
@@ -44,6 +46,18 @@ public class Product {
 	@JoinColumn(name="sid")
 	private Supplier supplier;
 	
+	//Transient varibles cannot be persisted..
+	@Transient 
+private MultipartFile image;
+	
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+
 	public Supplier getSupplier() {
 		return supplier;
 	}

@@ -1,5 +1,9 @@
 package com.demo.controllers;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -9,7 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.demo.model.Product;
 import com.demo.service.CategoryService;
@@ -17,7 +23,7 @@ import com.demo.service.ProductService;
 import com.demo.service.SupplierService;
 
 @Controller
-@RequestMapping("/admin")
+/*@RequestMapping("/admin")*/
 public class ProductController {
 	@Autowired
 	private ProductService productService;
@@ -50,9 +56,27 @@ public class ProductController {
 	public String addProduct(@Valid @ModelAttribute("product") Product product, BindingResult result) {
 		if (result.hasErrors())
 			return "productform";
-		productService.saveProduct(product);
+		productService.saveOrUpdateProduct(product);
+		MultipartFile prodImage=product.getImage();
+		if(!prodImage.isEmpty()){
+			Path paths=
+	Paths.get("C:/Users/Admin/git/HOUSEtoHOME/HomeDecor/src/main/webapp/WEB-INF/resources/Images/"+ product.getId()+".jpg");
+		try {
+			prodImage.transferTo(new File(paths.toString()));
+		}
+		catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
 		return "redirect:/prodlist";
-	}
+			
+		
+}
 
 	@RequestMapping("/prodlist")
 	public String getAllProducts(Model model) {
@@ -61,5 +85,40 @@ public class ProductController {
 		model.addAttribute("productList", products);
 		return "productlist";
 	}
+	
+	/*@RequestMapping("/all/product/viewproduct/{id}")
+	public String viewProduct(@PathVariable int id,Model model){
+		Product product=productService.getProductById(id);
+		model.addAttribute("product",product);
+	return "viewproduct";
+	}*/
+
+	@RequestMapping("/deleteproduct/{id}")
+	public String deleteProduct(@PathVariable int id){
+		productService.deleteProduct(id);
+		return "redirect:/prodlist";
+	}
+
+
+	/**
+	 *    to display the form to edit product details
+	 */
+	@RequestMapping("/editform/{id}")
+	public String editProductForm(@PathVariable int id,Model model){
+		Product product=productService.getProductById(id);
+		model.addAttribute("product",product);
+		model.addAttribute("categories",categoryService.getCategories());
+		model.addAttribute("suppliers", supplierService.getAllSuppliers());
+		return "editproductform";
+	}
+	@RequestMapping("/editProduct")
+	public String editProductDetails(@Valid @ModelAttribute("product") Product product,
+			BindingResult result){
+		if(result.hasErrors())
+			return "productform";
+		productService.saveOrUpdateProduct(product);
+		return "redirect:/prodlist";
+	}
+
 
 }

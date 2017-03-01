@@ -15,10 +15,6 @@ public class ShippingAddress {
     private String state;
     private String country;
     private String zipCode;
-
-    @OneToOne(mappedBy="shippingAddress", cascade= CascadeType.ALL, fetch=FetchType.EAGER)
-	private Customer customer;
-
     
     public int getShipId() {
   		return shipId;

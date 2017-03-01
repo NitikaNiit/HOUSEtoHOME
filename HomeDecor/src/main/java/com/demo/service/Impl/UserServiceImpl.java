@@ -1,7 +1,5 @@
 package com.demo.service.Impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +12,14 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 	
-	public List<Users> getUsers() {
+	/*public List<Users> getUsers() {
 		// TODO Auto-generated method stub
 		return userDao.getUsers();	
-	}
+	}*/
 
-	public Users saveUsers(Users users) {
+	public Users saveOrUpdateUsers(Users users) {
 		// TODO Auto-generated method stub
-		return userDao.saveUsers(users);
+		return userDao.saveOrUpdateUsers(users);
 	}
 
 	

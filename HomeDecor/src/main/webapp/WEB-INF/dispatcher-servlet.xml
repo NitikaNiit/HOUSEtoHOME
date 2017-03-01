@@ -14,5 +14,10 @@
 		<property value=".jsp" name="suffix" />
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> 
 	</bean>
+	<bean id="multipartResolver" 
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      		  <property name="maxUploadSize" value="10240000" />
+        </bean>
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+	
 </beans>

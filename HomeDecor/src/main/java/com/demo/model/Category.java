@@ -11,7 +11,7 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String categoryDetails;
-	@OneToMany(mappedBy="category" , cascade= CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="category")
 	private List<Product> products;
 	
 	public int getId() {

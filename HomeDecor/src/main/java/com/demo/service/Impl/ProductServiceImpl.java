@@ -19,8 +19,8 @@ public ProductServiceImpl(){
 		
 }
 
-public Product saveProduct(Product product){
-	return productDao.saveProduct(product);
+public Product saveOrUpdateProduct(Product product){
+	return productDao.saveOrUpdateProduct(product);
 //call the Dao method using productDao variable
 }
 
@@ -30,6 +30,18 @@ public List<Product> getAllProducts() {
 	
 	
 }
+
+public Product getProductById(int id) {
+	// TODO Auto-generated method stub
+	return productDao.getProductById(id);
+}
+
+public void deleteProduct(int id) {
+	// TODO Auto-generated method stub
+	productDao.deleteProduct(id);
+}
+
+
 
 
 

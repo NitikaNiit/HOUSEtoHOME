@@ -1,7 +1,5 @@
 package com.demo.service.Impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +12,14 @@ public class BillingServiceImpl implements BillingService {
 	@Autowired
 private BillingDao billingDao;
 	
-	public List<BillingAddress> getBillingAddress() {
+	/*public List<BillingAddress> getBillingAddress() {
 		// TODO Auto-generated method stub
 		return billingDao.getBillingAddress();
-	}
+	}*/
 
-	public BillingAddress saveBillingAddress(BillingAddress billing) {
+	public BillingAddress saveOrUpdateBillingAddress(BillingAddress billing) {
 		// TODO Auto-generated method stub
-		return billingDao.saveBillingAddress(billing);
+		return billingDao.saveOrUpdateBillingAddress(billing);
 	}
 
 }
