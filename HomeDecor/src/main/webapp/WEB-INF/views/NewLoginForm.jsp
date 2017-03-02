@@ -35,13 +35,13 @@ body {
 				<h1>
 					<strong>HousetoHome</strong> Login Form
 				</h1>
-				<div class="description">
+				<!-- <div class="description">
 					<p>
 						This is a free responsive login form made with Bootstrap. Download
 						it on <a href="http://azmind.com"><strong>AZMIND</strong></a>,
 						customize and use it as you like!
 					</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="row">

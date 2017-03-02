@@ -32,7 +32,7 @@ $('input[name=mfg]').datepicker({
 <div class="container">
 <div class="row">
 <div class="form-horizontal">
-<form:form action="addNewProduct"  commandName="product" enctype="multipart/form-data">
+<form:form action="addNewProduct"  commandName="productcommand" enctype="multipart/form-data">
 
 <div class="form-group">
 <label for="id"></label>
@@ -95,14 +95,16 @@ out.println(c.categoryDetails);-->
 </div>
 </div>
 
-<div class="form-group">
+ <div class="form-group">
 <label class="col-md-4 control-label" for="supplier">Supplier</label>
 <div class="col-md-6">
 <c:forEach var="s" items="${suppliers}">
 <form:radiobutton path="supplier.sid" value="${s.sid}"/>${s.supname }
 </c:forEach>
 </div>
-</div>
+</div> 
+
+
 
 <div class="form-group">
 <label class="col-md-4 control-label" for="image">Image</label>

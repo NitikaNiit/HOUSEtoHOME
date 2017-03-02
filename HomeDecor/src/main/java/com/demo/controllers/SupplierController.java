@@ -27,7 +27,7 @@ public class SupplierController {
 		return "supplierform";
 	}
 
-	@ModelAttribute("/supplier")
+	@ModelAttribute("supplier")
 	public Supplier newSupplier() {
 	
 		return new Supplier();

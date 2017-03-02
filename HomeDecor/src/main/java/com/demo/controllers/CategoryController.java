@@ -27,7 +27,7 @@ public class CategoryController {
 		return "categoryform";
 	}
 
-	@ModelAttribute("/category")
+	@ModelAttribute("category")
 	public Category newCategory() {
 		
 		return new Category();
@@ -39,7 +39,7 @@ public class CategoryController {
 		if (result.hasErrors())
 			return "categoryform";
 		categoryService.saveOrUpdateCategory(category);
-		return null;
+		return "redirect:/catlist";
 	}
 	
 	@RequestMapping("/catlist")

@@ -42,7 +42,7 @@ public class ProductController {
 		return "productform";
 	}
 
-	@ModelAttribute("product")
+	@ModelAttribute("productcommand")
 	public Product newProduct() {
 		/*
 		 * Product newProduct=productService.saveProduct(); /NOT A FINAL
@@ -53,7 +53,7 @@ public class ProductController {
 	}
 
 	@RequestMapping("/addNewProduct")
-	public String addProduct(@Valid @ModelAttribute("product") Product product, BindingResult result) {
+	public String addProduct(@Valid @ModelAttribute("productcommand") Product product, BindingResult result) {
 		if (result.hasErrors())
 			return "productform";
 		productService.saveOrUpdateProduct(product);
@@ -105,17 +105,17 @@ public class ProductController {
 	 */
 	@RequestMapping("/editform/{id}")
 	public String editProductForm(@PathVariable int id,Model model){
-		Product product=productService.getProductById(id);
-		model.addAttribute("product",product);
+		model.addAttribute("editproductcommand",productService.getProductById(id));
 		model.addAttribute("categories",categoryService.getCategories());
 		model.addAttribute("suppliers", supplierService.getAllSuppliers());
 		return "editproductform";
 	}
+	
 	@RequestMapping("/editProduct")
-	public String editProductDetails(@Valid @ModelAttribute("product") Product product,
-			BindingResult result){
+	public String editProductDetails(@Valid @ModelAttribute("editproductcommand") Product product, BindingResult result){
 		if(result.hasErrors())
 			return "productform";
+		
 		productService.saveOrUpdateProduct(product);
 		return "redirect:/prodlist";
 	}

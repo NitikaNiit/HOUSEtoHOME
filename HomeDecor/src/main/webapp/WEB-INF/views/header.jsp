@@ -10,6 +10,7 @@
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page isELIgnored="false" %>
 
 <link rel="stylesheet"
@@ -51,6 +52,9 @@
 						<li><a href="CONTACT" data-toggle="modal"
 							data-target="#contactmodal">Contact Us</a></li>
 						<li><a href="PRODUCTS">Products</a></li>
+						
+				<%-- <c:if test="${pageContext.request.userPrincipal.name != null}">
+				<security:authorize access="ROLE_ADMIN"> --%>
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -59,6 +63,9 @@
 								<li><a href="addCategory">Add Category</a></li>
 								<li><a href="addSupplier">Add Supplier</a></li>
 							</ul></li>
+							<%-- </security:authorize>
+					</c:if>	 --%>	
+							
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">VIEW <span class="caret"></span></a>
 							<ul class="dropdown-menu">

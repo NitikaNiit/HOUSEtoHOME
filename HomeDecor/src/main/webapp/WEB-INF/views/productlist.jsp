@@ -8,21 +8,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Browse Products</title>
+
 <style>
-body {
-	background-color:;
-	padding-top: 80px;
-}
+body { 
+     background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%); 
+
+	padding-top:80px; 
+	}
 </style>
 </head>
 <body>
 	<div class="container">
 	<h3>Product List</h3>
-		<table class="table table-bordered table-striped">
+	 <div  class="table-reponsive">
+  <!-- <div class="col-sm-12 col-md-12 col-md-offset-1"> -->
+	
+	 <table class="table table-hover">
+		<!-- <table class="table table-bordered table-striped"> -->
 			<thead>
 				<tr>
-					<th>Image</th>
 					<th>PID</th>
+					<th></th>
 					<th>Product Name</th>
 					<th>Description</th>
 					<th>Price</th>
@@ -33,12 +39,14 @@ body {
 			</thead>
 			<c:forEach var="pd" items="${productList}">
 				<tr>
-				<td>
-				<c:url var="src" value="resources/images/${pd.id }.jpg"></c:url>
-				<img class="img-thumbnail" src="${src }" width="80" height="80" />
-				</td>
+				
 					<td>${pd.id}</td>
+						<td>
+				<c:url var="src" value="resources/Images/${pd.id }.jpg"></c:url>
+				<img class="img-thumbnail" src="${src }" width="120" height="120" />
+				</td>
 					<td>${pd.name}</td>
+				
 					<td>${pd.description}</td>
 					<td>${pd.price}</td>
 					<td>${pd.quantity}</td>
@@ -61,7 +69,8 @@ body {
 				</tr>
 			</c:forEach>
 		</table>
-
-	</div>
+</div>
+</div>
+	
 </body>
 </html>
