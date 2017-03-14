@@ -16,7 +16,6 @@ public class AuthorityDaoImpl implements AuthorityDao {
 	private SessionFactory sessionFactory;
 
 	public Authorities saveOrUpdateAuthority(Authorities authority) {
-		// TODO Auto-generated method stub
 		Session session = sessionFactory.openSession();
 		session.saveOrUpdate(authority); //insert into authorities values (.....)
 		session.flush();

@@ -14,7 +14,6 @@ public class AuthorityServiceImpl implements AuthorityService {
 
 
 	public Authorities saveOrUpdateAuthority(Authorities authority) {
-		// TODO Auto-generated method stub
 		return authorityDao.saveOrUpdateAuthority(authority);
 	}
 

@@ -1,5 +1,6 @@
 package com.demo.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,39 +18,39 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-@Table(name="product")
-public class Product {
+@Table(name = "product")
+public class Product implements Serializable {
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	@NotEmpty(message="Product Name is mandatory")
+
+	@NotEmpty(message = "Product Name is mandatory")
 	private String name;
-	
-	@NotEmpty(message="Description is mandatory")
+
+	@NotEmpty(message = "Description is mandatory")
 	private String description;
-	
-	@Min(value=100)
+
+	@Min(value = 100)
 	private double price;
-	
-	@Min(value=1)
+
+	@Min(value = 1)
 	private int quantity;
-	
-	@NotNull(message="Manufacturing date is mandatory")
+
+	@NotNull(message = "Manufacturing date is mandatory")
 	private Date mfg;
-	
+
 	@ManyToOne
-	@JoinColumn(name="cid")
+	@JoinColumn(name = "cid")
 	private Category category;
-	
+
 	@ManyToOne
-	@JoinColumn(name="sid")
+	@JoinColumn(name = "sid")
 	private Supplier supplier;
-	
-	//Transient varibles cannot be persisted..
-	@Transient 
-private MultipartFile image;
-	
+
+	// Transient varibles cannot be persisted..
+	@Transient
+	private MultipartFile image;
+
 	public MultipartFile getImage() {
 		return image;
 	}
@@ -69,44 +70,55 @@ private MultipartFile image;
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
 	public Date getMfg() {
 		return mfg;
 	}
+
 	public void setMfg(Date mfg) {
 		this.mfg = mfg;
 	}
-	
+
 	public Category getCategory() {
 		return category;
 	}
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}

@@ -14,6 +14,17 @@ public class Users {
 	private String password;
 	private Boolean enabled;
 	
+	@OneToOne(mappedBy="users")
+	private Customer customer;
+	
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 	public int getUsersId() {
 		return usersId; 

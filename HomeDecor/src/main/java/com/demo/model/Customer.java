@@ -1,5 +1,6 @@
 package com.demo.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,9 +17,35 @@ private String firstname;
 private String lastname;
 private String email;
 private String phonenumber;
+
+
 private String username;
 private String password;
 
+@OneToOne(cascade=CascadeType.ALL)
+@JoinColumn(name="usersId")
+private Users users;
+
+@OneToOne(cascade=CascadeType.ALL)
+@JoinColumn(name="cartId")
+private Cart cart;
+
+@OneToOne
+@JoinColumn(name="billsId")
+private BillingAddress billingAddress;
+
+@OneToOne
+@JoinColumn(name="shipId")
+private ShippingAddress shippingAddress;
+
+
+public Cart getCart() {
+	return cart;
+}
+
+public void setCart(Cart cart) {
+	this.cart = cart;
+}
 
 public String getUsername() {
 	return username;
@@ -35,13 +62,13 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
+public Users getUsers() {
+	return users;
+}
 
-@OneToOne
-@JoinColumn(name="billsId")
-private BillingAddress billingAddress;
-@OneToOne
-@JoinColumn(name="shipId")
-private ShippingAddress shippingAddress;
+public void setUsers(Users users) {
+	this.users = users;
+}
 
 
 public int getId() {

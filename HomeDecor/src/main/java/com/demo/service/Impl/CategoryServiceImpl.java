@@ -15,12 +15,10 @@ public class CategoryServiceImpl implements CategoryService{
 private CategoryDao categoryDao;
 
 public List<Category> getCategories() {
-	// TODO Auto-generated method stub
 	return categoryDao.getCategories();
 }
 
 public Category saveOrUpdateCategory(Category category) {
-	// TODO Auto-generated method stub
 	return categoryDao.saveOrUpdateCategory(category);
 }
 

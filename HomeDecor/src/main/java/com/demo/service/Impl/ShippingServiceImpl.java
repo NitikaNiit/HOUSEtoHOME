@@ -13,12 +13,10 @@ public class ShippingServiceImpl implements ShippingService {
 private ShippingDao shippingDao;
 	
 	/*public List<ShippingAddress> getShippingAddress() {
-		// TODO Auto-generated method stub
 		return shippingDao.getShippingAddress();
 	}*/
 
 	public ShippingAddress saveOrUpdateShippingAddress(ShippingAddress shipping) {
-		// TODO Auto-generated method stub
 		return shippingDao.saveOrUpdateShippingAddress(shipping);
 	}
 

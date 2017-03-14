@@ -21,7 +21,6 @@ public class SupplierDaoImpl implements SupplierDao {
 		System.out.println("CREATING INSTANCE FOR SUPPLIERDAOIMPL");
 	}
 	public Supplier saveOrUpdateSupplier(Supplier supplier) {
-		// TODO Auto-generated method stub
 		System.out.println(supplier.getSid());
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(supplier); //insert into session values (.....)
@@ -32,7 +31,6 @@ public class SupplierDaoImpl implements SupplierDao {
 	}
 
 	public List<Supplier> getAllSuppliers() {
-		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Supplier");
 		List<Supplier> suppliers=query.list();

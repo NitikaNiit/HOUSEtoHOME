@@ -16,7 +16,6 @@ public class BillingDaoImpl implements BillingDao {
 	private SessionFactory sessionFactory;
 
 	/*public List<BillingAddress> getBillingAddress() {
-		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
 		Query query = session.createQuery("from BillingAddress");
 		List<BillingAddress> billing =query.list();
@@ -24,7 +23,6 @@ public class BillingDaoImpl implements BillingDao {
 	}*/
 
 	public BillingAddress saveOrUpdateBillingAddress(BillingAddress billing) {
-		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(billing); //insert into BillingAdress values (.....)
 		session.flush();

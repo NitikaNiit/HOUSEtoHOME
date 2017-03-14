@@ -6,5 +6,5 @@ public interface CustomerDao {
 	/*List<Customer> getCustomers();*/
 
 	Customer saveOrUpdateCustomer(Customer customer);
-	
+	Customer getCustomerByUsername(String username);
 }

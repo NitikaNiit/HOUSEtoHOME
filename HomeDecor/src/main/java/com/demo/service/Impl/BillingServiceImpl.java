@@ -13,12 +13,10 @@ public class BillingServiceImpl implements BillingService {
 private BillingDao billingDao;
 	
 	/*public List<BillingAddress> getBillingAddress() {
-		// TODO Auto-generated method stub
 		return billingDao.getBillingAddress();
 	}*/
 
 	public BillingAddress saveOrUpdateBillingAddress(BillingAddress billing) {
-		// TODO Auto-generated method stub
 		return billingDao.saveOrUpdateBillingAddress(billing);
 	}
 

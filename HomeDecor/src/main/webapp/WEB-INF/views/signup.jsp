@@ -3,11 +3,9 @@
     	  <div class="modal-content">
     	  <div class="modal-header" >
          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <style>h2{
-        color:#BF334C;
-        }</style>
+
         
-        <h2>HOUSEtoHOME<img src="resources/Images/interior.ico" align="right"></h2>
+        <h2 style="color:#BF334C">HOUSEtoHOME<img src="resources/Images/interior.ico" align="right"></h2>
  	 </div>
 				<div class="modal-body">
 					<h3 style="color:#00BFFF;"> Register</h3>
@@ -28,7 +26,7 @@
 	            <div class="checkbox">
 	              <label><input type="checkbox" value="unchecked">Remember me</label></div>
 	      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-				 <span><button type="submit"  class="btn btn-info  btn-block"></span> Sign Up</button>
+				 <span><button type="submit"  class="btn btn-info  btn-block"> Sign Up</button></span>
 	     
 	    
           </form>

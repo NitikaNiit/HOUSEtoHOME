@@ -16,11 +16,11 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- Favicon and touch icons -->
-<link rel="shortcut icon" href="resources/Images/login.ico">
+<link rel="shortcut icon" href="<c:url value="/resources/Images/login.ico" />">
 <style>
 body { 
 
-	padding-top:80px;
+	padding-top:60px;
 	
 	};
 
@@ -35,13 +35,14 @@ body {
 				<h1>
 					<strong>HousetoHome</strong> Login Form
 				</h1>
-				<!-- <div class="description">
+				 <div class="description">
+				 <div class="page-header">
 					<p>
-						This is a free responsive login form made with Bootstrap. Download
-						it on <a href="http://azmind.com"><strong>AZMIND</strong></a>,
-						customize and use it as you like!
+						Unlimited Choices.Unbeatable Prices.Free Shipping.
 					</p>
-				</div> -->
+				</div>
+				</div> 
+				
 			</div>
 		</div>
 		<div class="row">
@@ -52,7 +53,7 @@ body {
 						<p>Enter your username and password to log on:</p>
 					</div>
 					<div class="form-top-right">
-					<img src="resources/Images/icon.ico" >
+					<img style="padding-top:20px" src="resources/Images/icon.ico" >
 						<!-- <i class="fa fa-lock"></i> -->
 					</div>
 				</div>

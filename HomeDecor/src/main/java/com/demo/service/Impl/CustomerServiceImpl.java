@@ -12,15 +12,16 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDao customerDao;
 
 	/*public List<Customer> getCustomers() {
-		// TODO Auto-generated method stub
 		return customerDao.getCustomers();
 	}*/
 
 	public Customer saveOrUpdateCustomer(Customer customer) {
-		// TODO Auto-generated method stub
 		return customerDao.saveOrUpdateCustomer(customer);
 	}
 
+	public Customer getCustomerByUsername(String username){
+		return customerDao.getCustomerByUsername(username);
+	}
 	
 	
 }

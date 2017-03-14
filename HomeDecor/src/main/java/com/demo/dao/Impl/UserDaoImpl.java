@@ -24,7 +24,6 @@ private SessionFactory sessionFactory;
 	}
 */
 	public Users saveOrUpdateUsers(Users users) {
-		// TODO Auto-generated method stub
 		System.out.println(users.getUsersId());
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(users); //insert into users values (.....)

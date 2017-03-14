@@ -16,7 +16,6 @@ public class ShippingDaoImpl implements ShippingDao {
 	private SessionFactory sessionFactory;
 /*
 	public List<ShippingAddress> getShippingAddress() {
-		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
 		Query query = session.createQuery("from ShippingAddress");
 		List<ShippingAddress> shipping =query.list();
@@ -24,7 +23,6 @@ public class ShippingDaoImpl implements ShippingDao {
 	}*/
 
 	public ShippingAddress saveOrUpdateShippingAddress(ShippingAddress shipping) {
-		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(shipping); //insert into BillingAdress values (.....)
 		session.flush();

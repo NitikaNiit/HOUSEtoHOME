@@ -32,12 +32,10 @@ public List<Product> getAllProducts() {
 }
 
 public Product getProductById(int id) {
-	// TODO Auto-generated method stub
 	return productDao.getProductById(id);
 }
 
 public void deleteProduct(int id) {
-	// TODO Auto-generated method stub
 	productDao.deleteProduct(id);
 }
 

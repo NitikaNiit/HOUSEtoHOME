@@ -1,5 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -53,15 +53,15 @@ body {
 					<td>${pd.category.categoryDetails}</td>
 					<td>${pd.supplier.supname}</td>
 					<td>
-					<c:url var="url" value="viewproduct/${pd.id }"></c:url>
+					<c:url var="url" value="/viewproduct/${pd.id }"></c:url>
 					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
 					</td>
 					<td>
-					<c:url var="delete" value="deleteproduct/${pd.id }"></c:url>
+					<c:url var="delete" value="/deleteproduct/${pd.id }"></c:url>
 					<a href="${delete }"><span class="glyphicon glyphicon-remove"></span></a>
 					</td>
 					<td>
-					<c:url var="edit" value="editform/${pd.id }"></c:url>
+					<c:url var="edit" value="/editform/${pd.id }"></c:url>
 					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
 				    </td>
 					

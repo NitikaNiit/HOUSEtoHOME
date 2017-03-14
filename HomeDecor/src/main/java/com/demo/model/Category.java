@@ -1,17 +1,20 @@
 package com.demo.model;
 
+import java.io.Serializable;
 import java.util.List;
-
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-public class Category {
+public class Category implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String categoryDetails;
+	
 	@OneToMany(mappedBy="category")
+	@JsonIgnore
 	private List<Product> products;
 	
 	public int getId() {

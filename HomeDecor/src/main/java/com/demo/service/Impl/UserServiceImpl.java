@@ -13,12 +13,10 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	
 	/*public List<Users> getUsers() {
-		// TODO Auto-generated method stub
 		return userDao.getUsers();	
 	}*/
 
 	public Users saveOrUpdateUsers(Users users) {
-		// TODO Auto-generated method stub
 		return userDao.saveOrUpdateUsers(users);
 	}
 

@@ -109,6 +109,8 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>3.2.5.RELEASE</version>
 		</dependency>
+		
+		 <!--  for Data Conversion - JSON format -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
