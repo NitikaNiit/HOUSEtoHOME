@@ -1,5 +1,7 @@
 package com.demo.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Customer {
+public class Customer implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
@@ -22,11 +24,11 @@ private String phonenumber;
 private String username;
 private String password;
 
-@OneToOne(cascade=CascadeType.ALL)
+@OneToOne
 @JoinColumn(name="usersId")
 private Users users;
 
-@OneToOne(cascade=CascadeType.ALL)
+@OneToOne
 @JoinColumn(name="cartId")
 private Cart cart;
 

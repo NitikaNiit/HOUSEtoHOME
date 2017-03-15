@@ -33,12 +33,13 @@ public class CartItemController {
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void addCartItem(@PathVariable(value = "id") int productId) {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+		System.out.println("Username = "+user.getUsername());
 		Customer customer = customerService.getCustomerByUsername(user.getUsername());// from
 																						// Users
 																						// where
 																						// username=?
 		Cart cart = customer.getCart();
+		System.out.println("Cart Value = "+cart.getCartId());
 		Product product = productService.getProductById(productId);
 		List<CartItem> cartItems = cart.getCartItems();
 

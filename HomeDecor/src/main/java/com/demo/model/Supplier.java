@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Supplier  {	
 	@Id
@@ -30,6 +32,7 @@ public class Supplier  {
 	private String supproduct;
 	
 	@OneToMany(mappedBy = "supplier")
+	@JsonIgnore
 	private List<Product> products;
 
 	

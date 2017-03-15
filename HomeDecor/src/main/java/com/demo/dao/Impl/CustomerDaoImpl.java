@@ -5,12 +5,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.demo.dao.CustomerDao;
 import com.demo.model.Authorities;
 import com.demo.model.BillingAddress;
+import com.demo.model.Cart;
 import com.demo.model.Customer;
 import com.demo.model.ShippingAddress;
 import com.demo.model.Users;
@@ -35,15 +37,29 @@ public class CustomerDaoImpl implements CustomerDao  {
 		Users users = new Users();
 		users.setUsersId(customer.getId());
 		users.setUsername(customer.getUsername());
-		users.setPassword(customer.getPassword());
+		customer.getUsers();
+		customer.setUsers(users);
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		users.setPassword(encoder.encode(customer.getPassword()));
+		
 		users.setEnabled(true);
+		
 		Authorities authority = new Authorities();
 		authority.setRole("ROLE_USER");
 		authority.setUsername(customer.getUsername());
 		
+		Cart cart =new Cart();
+		customer.setCart(cart);
+		cart.setCustomer(customer);
+		
+		
+		
 		session.saveOrUpdate(users);
 		session.saveOrUpdate(authority);
 		session.saveOrUpdate(customer); //insert into customer values (.....)
+		session.saveOrUpdate(cart);
+		
 		session.flush();
 		session.close();
 		System.out.println(customer.getId());

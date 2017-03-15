@@ -6,7 +6,7 @@ import com.demo.model.Supplier;
 
 public interface SupplierDao {
 
-	Supplier saveOrUpdateSupplier(Supplier s);
+	Supplier saveOrUpdateSupplier(Supplier supplier);
 
 	List<Supplier> getAllSuppliers();
 

@@ -34,7 +34,23 @@ public class CartController {
 
 	@RequestMapping("/cart/getCart/{cartId}")
 	public @ResponseBody Cart getCart(@PathVariable int cartId) {
+		System.out.println("cart id in CartController is" + cartId);
 		Cart cart = cartService.getCart(cartId);
 		return cart;
 	}
+	
+	/*@RequestMapping("/cart/getCart")
+	public String getCartId(@AuthenticationPrincipal User activeUser) {
+		Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
+		int cartId = customer.getCart().getCartId();
+		return "redirect:/cart/getCart/" + cartId;
+	}
+
+	@RequestMapping("/cart/getCart/{cartId}")
+	public String getCart(@PathVariable int cartId, Model model) {
+		model.addAttribute("cartId", cartId);
+		return "cart";
+	}*/
+	
+	
 }

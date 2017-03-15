@@ -64,7 +64,9 @@
 						<li><a href="<c:url value="/PRODUCTS" />">Products</a></li>
 						<li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li>
 
-						<c:if test="${pageContext.request.userPrincipal.name != admin}">
+						
+						
+						<c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
 							<li class="dropdown"><a class="dropdown-toggle"
 								data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>
 								<ul class="dropdown-menu">
