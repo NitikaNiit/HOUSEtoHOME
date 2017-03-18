@@ -17,6 +17,7 @@ import com.demo.model.CartItem;
 import com.demo.model.Customer;
 import com.demo.model.Product;
 import com.demo.service.CartItemService;
+import com.demo.service.CartService;
 import com.demo.service.CustomerService;
 import com.demo.service.ProductService;
 
@@ -28,18 +29,20 @@ public class CartItemController {
 	private CustomerService customerService;
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private CartService cartService;
 
 	@RequestMapping(value = "/addCartItem/{id}", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void addCartItem(@PathVariable(value = "id") int productId) {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		System.out.println("Username = "+user.getUsername());
+		System.out.println("Username = " + user.getUsername());
 		Customer customer = customerService.getCustomerByUsername(user.getUsername());// from
 																						// Users
 																						// where
 																						// username=?
 		Cart cart = customer.getCart();
-		System.out.println("Cart Value = "+cart.getCartId());
+		System.out.println("Cart Value = " + cart.getCartId());
 		Product product = productService.getProductById(productId);
 		List<CartItem> cartItems = cart.getCartItems();
 
@@ -68,4 +71,19 @@ public class CartItemController {
 		cartItem.setCart(cart);// set cart id
 		cartItemService.addCartItem(cartItem); // insert query
 	}
+
+	@RequestMapping("/cart/removeCartItem/{cartItemId}")
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void removeCartItem(@PathVariable int cartItemId) {
+		CartItem cartItem = cartItemService.getCartItem(cartItemId);
+		cartItemService.removeCartItem(cartItem);
+	}
+
+	@RequestMapping("/cart/removeAllCartItems/{cartId}")
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void removeAllCartItems(@PathVariable int cartId) {
+		Cart cart = cartService.getCart(cartId);
+		cartItemService.removeAllCartItems(cart);
+	}
+
 }

@@ -13,6 +13,7 @@ import com.demo.dao.CustomerDao;
 import com.demo.model.Authorities;
 import com.demo.model.BillingAddress;
 import com.demo.model.Cart;
+import com.demo.model.CartItem;
 import com.demo.model.Customer;
 import com.demo.model.ShippingAddress;
 import com.demo.model.Users;
@@ -52,7 +53,6 @@ public class CustomerDaoImpl implements CustomerDao  {
 		Cart cart =new Cart();
 		customer.setCart(cart);
 		cart.setCustomer(customer);
-		
 		
 		
 		session.saveOrUpdate(users);

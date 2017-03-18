@@ -66,7 +66,7 @@
 
 						
 						
-						<c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+						<%-- <c:if test="${pageContext.request.userPrincipal.name == 'admin'}"> --%>
 							<li class="dropdown"><a class="dropdown-toggle"
 								data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>
 								<ul class="dropdown-menu">
@@ -78,7 +78,7 @@
 									<li><a href="<c:url value="/addSupplier" />">Add
 											Supplier</a></li>
 								</ul></li>
-						</c:if>
+						<%-- </c:if> --%>
 
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">VIEW <span class="caret"></span></a>

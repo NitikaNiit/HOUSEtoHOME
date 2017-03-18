@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.demo.model.Category;
 import com.demo.model.Product;
+import com.demo.model.Supplier;
 import com.demo.service.CategoryService;
 import com.demo.service.ProductService;
 import com.demo.service.SupplierService;
@@ -113,7 +115,7 @@ public class ProductController {
 	@RequestMapping("/editProduct")
 	public String editProductDetails(@Valid @ModelAttribute("product") Product product, BindingResult result, HttpServletRequest request) {
 		if (result.hasErrors())
-			return "redirect:/editform/{id}";
+			return "editproductform";
 		MultipartFile prodImage=product.getImage();
 		if(!prodImage.isEmpty()){
 			Path paths=

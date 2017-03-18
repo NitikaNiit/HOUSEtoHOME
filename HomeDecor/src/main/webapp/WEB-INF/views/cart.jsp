@@ -1,43 +1,156 @@
 <%@ include file="header.jsp"%>
 <style>
 body {
-	background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%);
-	padding-top: 80px;
+	/* background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%); */
+	padding-top: 100px;
+	font-size: 14px;
+	background-color: #f2f6f9;
 }
 
-footer {
+.minicart {
+	background: url(/HomeDecor/resources/Images/sprite.png);
+	background-position: -156px 11px;
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 50px;
+	padding-right: 32px;
+}
+
+.navbar1 {
+	background-color: #4ea6bc;
+	padding: 20px;
+	border-radius: 0;
+	margin: 0;
+}
+
+.navbar-brand {
+	color: #fff;
+	font-family: Open Sans, sans-serif;
+	padding-left: 32px;
+}
+
+.navbar-brand:hover {
+	color: #fff;
+}
+
+.container.text-center {
+	padding: 0 32px;
+}
+
+.col-md-5.col-sm-12 {
+	padding: 0;
+}
+
+.col-md-5.col-sm-12 h1 {
+	color: #595c5f;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	text-align: left;
+}
+
+.bigcart {
+	background: url(/HomeDecor/resources/Images/sprite.png);
+	background-position: 0px 11px;
+	background-repeat: no-repeat;
+	width: 155px;
+	height: 120px;
+	margin: 0 0 40px 60px;
+}
+
+.columnCaptions {
+	color: #7e93a7;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding: 0;
+	box-shadow: 0 0 0;
+	background-color: #f2f6f9;
+}
+
+.col-md-7 {
+	margin-bottom: 72px;
+}
+
+/* footer {
 	position: absolute;
 	bottom: 0px;
 	left: 0;
 	right: 0;
-}
+} */
 </style>
 <body>
+	<!-- <nav class="navbar1">
+			<div class="container">
+				<a class="navbar-brand" href="#">Your online store</a>
+				<div class="navbar-right">
+					<div class="container minicart"></div>
+				</div>
+			</div>
+		</nav> -->
 	<div ng-app="app" ng-controller="ProductController">
 		<div ng-init="getCart(${cartId})">
+			<div>
+				<a href="#" ng-click="clearCart(${cartItem.cartItemId})"> <span
+					class="glyphicon glyphicon-remove-sign"></span>Clear Cart
+				</a>
+				<a href="/order/${cartId}"> <span
+					class="btn btn-success pullright"
+					class="glyphicon glyphicon-shopping-cart"></span> Check out
+				</a>
+			</div>
 			<div class="container">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Quantity</th>
-							<th>Total Price</th>
-						</tr>
-					</thead>
-					<tr ng-repeat="cartItem in cart.cartItems">
-						<td>{{cartItem.product.name}}</td>
-						<td>{{cartItem.quantity}}
-							<button class="btn btn-success" type="button">+</button>
-							<button class="btn btn-inverse" type="button">-</button>
-						</td>
-						<td>{{cartItem.totalPrice}}</td>
-					</tr>
+				<div class="col-md-5">
+					<div class="container text-center">
+						<div class="col-md-5 col-sm-12">
+							<div class="bigcart"></div>
+							<h1>Your shopping cart</h1>
+						</div>
+					</div>
+				</div>
 
-				</table>
+				<!-- <h1>Your Cart</h1> -->
+				<div class="table-reponsive">
+					<div class="col-md-5"></div>
+					<div class="col-md-7  text-left">
+						<table class="table table-hover">
+							<thead>
+								<tr class="columnCaptions">
+									<th></th>
+									<th>Item</th>
+									<th>Qty</th>
+									<th>Price</th>
+									<th>Total:</th>
+								</tr>
+							</thead>
+
+							<tr ng-repeat="cartItem in cart.cartItems">
+								<td><c:url var="src"
+										value="/resources/Images/{{cartItem.product.id}}.jpg"></c:url>
+									<img class="img-thumbnail" src="${src }" width="120"
+									height="120" /></td>
+								<td>{{cartItem.product.name}}</td>
+								<td><button class="btn btn-success" type="button">+</button>
+									{{cartItem.quantity}}
+									<button class="btn btn-inverse" type="button">-</button></td>
+								<td>{{cartItem.product.price}}</td>
+								<td>{{cartItem.totalPrice}}</td>
+								<td><a href="#" class="label label-danger"
+									ng-click="removeFromCart(cartItem.cartItemId)"> <span
+										class="glyphicon glyphicon-remove">remove</span>
+								</a></td>
+
+							</tr>
+
+						</table>
+						Total Price : {{calculateGrandTotal()}}
+
+
+					</div>
+				</div>
 			</div>
 		</div>
-
 	</div>
-	<br />
+	<br>
+	<br>
 	<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
 	<%@ include file="footer.jsp"%>

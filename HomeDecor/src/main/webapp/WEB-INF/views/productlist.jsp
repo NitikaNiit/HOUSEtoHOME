@@ -42,11 +42,10 @@ body {
 				
 					<td>${pd.id}</td>
 						<td>
-				<c:url var="src" value="resources/Images/${pd.id }.jpg"></c:url>
+				<c:url var="src" value="/resources/Images/${pd.id }.jpg"></c:url>
 				<img class="img-thumbnail" src="${src }" width="120" height="120" />
 				</td>
-					<td>${pd.name}</td>
-				
+					<td>${pd.name}</td>				
 					<td>${pd.description}</td>
 					<td>${pd.price}</td>
 					<td>${pd.quantity}</td>
