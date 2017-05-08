@@ -22,11 +22,11 @@ public class HomeController {
 	{
 		return "contact";
 	}*/
-	@RequestMapping("/PRODUCTS")
+	/*@RequestMapping("/PRODUCTS")
 	public String database()
 	{
 	return "Producttable";
-	}
+	}*/
 	@RequestMapping("/View")
 	public String vmore()
 	{

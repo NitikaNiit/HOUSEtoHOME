@@ -22,6 +22,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		Session session=sessionFactory.openSession();
 		Query query = session.createQuery("from Category");
 		List<Category> categories =query.list();
+		session.close();
 		return categories;
 	}
 

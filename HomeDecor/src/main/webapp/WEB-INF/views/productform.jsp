@@ -1,4 +1,4 @@
-<%@ include file="header.jsp" %>
+<%@ include file="header.jsp" %> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -33,7 +33,7 @@ $('input[name=mfg]').datepicker({
 <div class="container">
 <div class="row">
 <div class="form-horizontal">
-<form:form action="addNewProduct"  commandName="productcommand" enctype="multipart/form-data">
+<form:form action="${pageContext.request.contextPath}/admin/addNewProduct"  commandName="productcommand" enctype="multipart/form-data">
 
 <div class="form-group">
 <label for="id"></label>

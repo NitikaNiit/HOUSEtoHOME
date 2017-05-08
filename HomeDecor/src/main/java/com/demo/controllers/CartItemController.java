@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.demo.model.Cart;
@@ -31,6 +32,11 @@ public class CartItemController {
 	private ProductService productService;
 	@Autowired
 	private CartService cartService;
+	/*
+	 @RequestMapping("{cartId}")
+	    public @ResponseBody Cart getCartById(@PathVariable(value = "cartId") int cartId){
+	        return cartService.getCart(cartId);
+	    }*/
 
 	@RequestMapping(value = "/addCartItem/{id}", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)

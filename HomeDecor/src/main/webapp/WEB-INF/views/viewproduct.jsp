@@ -21,7 +21,7 @@ ul.unstyled {
 	padding: 0;
 }
 </style>
-<body data-ng-app="app" data-ng-controller="ProductController">
+<body data-ng-app="app" ng-controller="ProductController">
 	<div class="container-wrapper">
 		<div class="container">
 			<div class="page-header">
@@ -47,12 +47,15 @@ ul.unstyled {
 							<strong>Category</strong>: ${product.category.categoryDetails}
 						</p>
 						<p>Rs ${product.price}</p>
-			<%-- <c:url value="/addCartItem/${product.id }" var="url"></c:url> --%>
-						<a href="#" class="btn btn-warning btn-lg"
-							data-ng-click="addToCart(${product.id })"> <span
-							class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
-						</a> <a href="#" class="btn btn-danger btn-lg">View more Products</a>
-						<br />
+						<%-- <c:url value="/addCartItem/${product.id }" var="url"></c:url> --%>
+						<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+							<a href="#" class="btn btn-warning btn-lg"
+								data-ng-click="addToCart(${product.id })"> <span
+								class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
+
+							</a>
+						</c:if>
+						<a href="<c:url value="/prodlist" />" class="btn btn-danger btn-lg" >View more Products</a> <br />
 					</div>
 
 				</div>

@@ -6,12 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.demo.dao.CartItemDao;
 import com.demo.model.Cart;
 import com.demo.model.CartItem;
 
 @Repository
+@Transactional
 public class CartItemDaoImpl implements CartItemDao{
 	@Autowired
 private SessionFactory sessionFactory;

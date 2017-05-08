@@ -1,12 +1,14 @@
 package com.demo.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Entity
-public class Users {
+public class Users implements Serializable {
 
 	@Id 
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int usersId; 
 	
 	@Column(unique=true)

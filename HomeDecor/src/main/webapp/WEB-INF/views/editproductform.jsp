@@ -31,8 +31,8 @@ $('input[name=mfg]').datepicker({
 <div class="container">
 <div class="row">
 <div class="form-horizontal">
-<c:url value="/editProduct" var="url"></c:url>
-<form:form action="${url }"  commandName="product" enctype="multipart/form-data">
+<c:url value="/admin/editProduct/${id }" var="url"></c:url>
+<form:form action="${url }"  commandName="product1" enctype="multipart/form-data">
 
 <div class="form-group">
 <label class="col-md-4 control-label" for="id">PID</label>

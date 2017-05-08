@@ -39,6 +39,11 @@ public void deleteProduct(int id) {
 	productDao.deleteProduct(id);
 }
 
+public void editProduct(Product product) {
+	productDao.editProduct(product);
+	
+}
+
 
 
 

@@ -17,7 +17,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 	// display form
-	// http://localhost:8080/project1/admin/category/categoryform
+	// http://localhost:9002/HomeDecor/admin/categoryform
 
 	@RequestMapping("/addCategory")
 	public String getCategoryForm(Model model) {

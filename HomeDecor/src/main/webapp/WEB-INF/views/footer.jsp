@@ -24,9 +24,9 @@
 <li><a href="">Google Plus</a></li>
 </ul>
 </div>
-<div class="col-sm-2">
+<!-- <div class="col-sm-2">
 <h6>Coded with <span class="glyphicon glyphicon-heart"></span> by Nitika</h6>
-</div>
+</div> -->
 
 </div>
 </div>

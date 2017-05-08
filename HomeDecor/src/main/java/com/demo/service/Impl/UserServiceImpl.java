@@ -11,10 +11,6 @@ import com.demo.service.UserService;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
-	
-	/*public List<Users> getUsers() {
-		return userDao.getUsers();	
-	}*/
 
 	public Users saveOrUpdateUsers(Users users) {
 		return userDao.saveOrUpdateUsers(users);

@@ -10,26 +10,40 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Customer implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
+
+@NotEmpty (message = "The customer name must not be null")
 private String firstname;
+
+@NotEmpty(message = "The customer name must not be null")
 private String lastname;
+
+@NotEmpty (message = "The customer email must not be null")
 private String email;
+
 private String phonenumber;
 
-
+@NotEmpty (message = "The customer username must not be null")
 private String username;
+
+@NotEmpty (message = "The customer password must not be null")
 private String password;
 
-@OneToOne
+@OneToOne()
 @JoinColumn(name="usersId")
 private Users users;
 
-@OneToOne
+@OneToOne()
 @JoinColumn(name="cartId")
+@JsonIgnore
 private Cart cart;
 
 @OneToOne

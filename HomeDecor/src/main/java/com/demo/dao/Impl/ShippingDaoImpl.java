@@ -14,13 +14,6 @@ import com.demo.model.ShippingAddress;
 public class ShippingDaoImpl implements ShippingDao {
 	@Autowired
 	private SessionFactory sessionFactory;
-/*
-	public List<ShippingAddress> getShippingAddress() {
-		Session session=sessionFactory.openSession();
-		Query query = session.createQuery("from ShippingAddress");
-		List<ShippingAddress> shipping =query.list();
-		return shipping;
-	}*/
 
 	public ShippingAddress saveOrUpdateShippingAddress(ShippingAddress shipping) {
 		Session session=sessionFactory.openSession();

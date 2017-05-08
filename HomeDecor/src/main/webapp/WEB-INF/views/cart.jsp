@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %> 
 <%@ include file="header.jsp"%>
 <style>
 body {
@@ -71,12 +72,7 @@ body {
 	margin-bottom: 72px;
 }
 
-/* footer {
-	position: absolute;
-	bottom: 0px;
-	left: 0;
-	right: 0;
-} */
+ 
 </style>
 <body>
 	<!-- <nav class="navbar1">
@@ -89,15 +85,7 @@ body {
 		</nav> -->
 	<div ng-app="app" ng-controller="ProductController">
 		<div ng-init="getCart(${cartId})">
-			<div>
-				<a href="#" ng-click="clearCart(${cartItem.cartItemId})"> <span
-					class="glyphicon glyphicon-remove-sign"></span>Clear Cart
-				</a>
-				<a href="/order/${cartId}"> <span
-					class="btn btn-success pullright"
-					class="glyphicon glyphicon-shopping-cart"></span> Check out
-				</a>
-			</div>
+			 
 			<div class="container">
 				<div class="col-md-5">
 					<div class="container text-center">
@@ -108,7 +96,25 @@ body {
 					</div>
 				</div>
 
+				
+				 <div class="col-md-4">
+				<a href="#" ng-click="clearCart(${cartItem.cartItemId})" class="btn btn-danger"> <span
+					class="glyphicon glyphicon-remove-sign"> </span>Clear Cart
+				</a>
+				</div>
+				 <div class="col-md-3">
+				<a href="<spring:url value="/order/${cartId}" />" class="btn btn-success ">
+					<span class="glyphicon glyphicon-shopping-cart"> </span>Check out
+				</a>
+				 </div>
+			
 				<!-- <h1>Your Cart</h1> -->
+				<%-- <a href="#" ng-click="clearCart(${cartItem.cartItemId})"> <span
+					class="glyphicon glyphicon-remove-sign"></span>Clear Cart
+				</a> 
+				<a href="<c:url value="/order/${cartId}"></c:url>"
+					class="btn btn-success pull-right">Check Out 
+					</a> --%>
 				<div class="table-reponsive">
 					<div class="col-md-5"></div>
 					<div class="col-md-7  text-left">
@@ -129,9 +135,9 @@ body {
 									<img class="img-thumbnail" src="${src }" width="120"
 									height="120" /></td>
 								<td>{{cartItem.product.name}}</td>
-								<td><button class="btn btn-success" type="button">+</button>
+								<td><!-- <button class="btn btn-success" type="button">+</button> -->
 									{{cartItem.quantity}}
-									<button class="btn btn-inverse" type="button">-</button></td>
+									<!-- <button class="btn btn-inverse" type="button">-</button></td> -->
 								<td>{{cartItem.product.price}}</td>
 								<td>{{cartItem.totalPrice}}</td>
 								<td><a href="#" class="label label-danger"
@@ -142,7 +148,7 @@ body {
 							</tr>
 
 						</table>
-						Total Price : {{calculateGrandTotal()}}
+						<h4>Total Price : <span class="text-muted">Rs. {{calculateGrandTotal()}}</span></h4>
 
 
 					</div>
@@ -153,4 +159,4 @@ body {
 	<br>
 	<br>
 	<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
-	<%@ include file="footer.jsp"%>
+	<%-- <%@ include file="footer.jsp"%> --%>

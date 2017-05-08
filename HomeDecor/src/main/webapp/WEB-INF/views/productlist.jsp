@@ -1,5 +1,6 @@
 <%@ include file="header.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page isELIgnored="false"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -10,6 +11,7 @@
 <title>Browse Products</title>
 
 <style>
+
 body { 
      background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%); 
 
@@ -51,19 +53,28 @@ body {
 					<td>${pd.quantity}</td>
 					<td>${pd.category.categoryDetails}</td>
 					<td>${pd.supplier.supname}</td>
+					
 					<td>
 					<c:url var="url" value="/viewproduct/${pd.id }"></c:url>
 					<a href="${url }"><span class="glyphicon glyphicon-info-sign"></span></a> 
 					</td>
+					
+					 <c:if test="${pageContext.request.userPrincipal.name == 'admin'}"> 
 					<td>
-					<c:url var="delete" value="/deleteproduct/${pd.id }"></c:url>
+					<c:url var="delete" value="/admin/deleteproduct/${pd.id }"></c:url>
 					<a href="${delete }"><span class="glyphicon glyphicon-remove"></span></a>
 					</td>
+					
 					<td>
-					<c:url var="edit" value="/editform/${pd.id }"></c:url>
+					<c:url var="edit" value="/admin/editform/${pd.id }"></c:url>
 					<a href="${edit }"><span class="glyphicon glyphicon-pencil"></span></a>
 				    </td>
-					
+				   
+					</c:if>
+					<td>
+					<a href="<spring:url value="/favorite/${pd.id }" />">
+					<img src="<c:url value="/resources/Images/fav.png" />" /></a>
+					</td>
 									
 				</tr>
 			</c:forEach>
@@ -72,4 +83,6 @@ body {
 </div>
 	
 </body>
+<br/>
 </html>
+<%@ include file="footer.jsp"%>

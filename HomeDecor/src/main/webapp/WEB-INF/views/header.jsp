@@ -15,11 +15,11 @@
 <script src="resources/Bootstrap/js/bootstrap.min.js"></script>-->
 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -36,11 +36,23 @@
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <link rel="stylesheet"
-	href="<c:url value="/resources/css/heroslide.css" />">
+	href="<c:url value="/resources/css/main.css" />">
 <%@include file="contact.jsp"%>
+  <style >
+    /*  .navbar{
+       /*  background-color:#;
+        background-image: none; */
+      
+        background: rgba(0,0,0,0.5) !important; 
+        */
+   
+     .hero-slide{margin-top:0px;} 
 
+</style>  
 </head>
 <body>
+ 
+          
 	<div class="navbar-wrapper">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -61,35 +73,38 @@
 						<li><a href="#">About</a></li>
 						<li><a href="<c:url value="/CONTACT" />" data-toggle="modal"
 							data-target="#contactmodal">Contact Us</a></li>
-						<li><a href="<c:url value="/PRODUCTS" />">Products</a></li>
-						<li><a href="<c:url value="/cart/getCartId"></c:url>">Cart</a></li>
-
+						<%-- <li><a href="<c:url value="/PRODUCTS" />">Products</a></li> --%>
+						<li><a href="<c:url value="/prodlist" />">Products</a></li>
 						
 						
-						<%-- <c:if test="${pageContext.request.userPrincipal.name == 'admin'}"> --%>
+						
+						
+						 <c:if test="${pageContext.request.userPrincipal.name == 'admin'}"> 
 							<li class="dropdown"><a class="dropdown-toggle"
-								data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>
+								data-toggle="dropdown" href="#">ADD <span class="caret"></span></a>  
 								<ul class="dropdown-menu">
 									<!-- <li><a href="admin/addProduct">Add Product</a></li> -->
-									<li><a href="<c:url value="/addProduct" />">Add
+									<li><a href="<c:url value="/admin/addProduct" />">Add
 											Product</a></li>
 									<li><a href="<c:url value="/addCategory" />">Add
 											Category</a></li>
 									<li><a href="<c:url value="/addSupplier" />">Add
 											Supplier</a></li>
 								</ul></li>
-						<%-- </c:if> --%>
+					
 
+						
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">VIEW <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="<c:url value="/prodlist" />">View all
-										Products</a></li>
+								<%-- <li><a href="<c:url value="/prodlist" />">View all
+										Products</a></li> --%>
 								<li><a href="<c:url value="/suplist" />">View all
 										Suppliers</a></li>
 								<li><a href="<c:url value="/catlist" />">View all
 										Categories</a></li>
 							</ul></li>
+								</c:if>
 
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -103,7 +118,11 @@
 							</c:if>
 
 						</c:if>
-
+						
+						<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+						<li><a href="<c:url value="/cart/getCartId"/>" class="glyphicon glyphicon-shopping-cart"></a></li>
+						</c:if>
+						
 						<c:if test="${pageContext.request.userPrincipal.name == null}">
 							<li><a href="<c:url value="/signup"/>"> <span
 									class="glyphicon glyphicon-user"></span> Sign Up
@@ -117,4 +136,4 @@
 				</div>
 			</div>
 		</nav>
-	</div>
+	</div> 

@@ -17,7 +17,7 @@ public class SupplierController {
 	@Autowired
 	private SupplierService supplierService;
 	// display form
-	// http://localhost:8080/project1/admin/supplier/supplierform
+	// http://localhost:9002/HomeDecor/admin/supplierform
 
 	@RequestMapping("/addSupplier")
 	public String getSupplierForm(Model model) {
@@ -39,7 +39,7 @@ public class SupplierController {
 		if (result.hasErrors())
 			return "supplierform";
 		supplierService.saveOrUpdateSupplier(supplier);
-		return "redirect:/getAllSuppliers";
+		return "redirect:/suplist";
 	}
 	
 	@RequestMapping("/suplist")

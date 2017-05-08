@@ -1,5 +1,6 @@
 package com.demo.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Supplier  {	
+public class Supplier implements Serializable {	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int sid;

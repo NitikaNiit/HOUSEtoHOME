@@ -28,6 +28,7 @@ body {
 <form:label class="col-md-4 control-label" path="firstname">FIRST NAME</form:label>
 <div class="col-md-6">
 <form:input path="firstname" class="form-control"></form:input>
+<form:errors path="firstname" cssStyle="color: #ff0000" />
 </div>
 </div>
 
@@ -35,13 +36,16 @@ body {
 <form:label class="col-md-4 control-label"  path="lastname">LAST NAME</form:label>
 <div class="col-md-6">
 <form:input path="lastname" class="form-control"></form:input>
+<form:errors path="lastname" cssStyle="color: #ff0000" />
 </div>
 </div>
 
 <div class="form-group">
 <form:label class="col-md-4 control-label" path="email">EMAIL</form:label>
 <div class="col-md-6">
+<span style="color: #ff0000">${emailMsg}</span>
 <form:input path="email" class="form-control"></form:input>
+<form:errors path="email" cssStyle="color: #ff0000" />
 </div>
 </div>
 
@@ -55,7 +59,9 @@ body {
 <div class="form-group">
 <form:label class="col-md-4 control-label"  path="username">USERNAME</form:label>
 <div class="col-md-6">
+<span style="color: #ff0000">${usernameMsg}</span>
 <form:input path="username" class="form-control"></form:input>
+<form:errors path="username" cssStyle="color: #ff0000" />
 </div>
 </div>
 
@@ -63,6 +69,7 @@ body {
 <form:label class="col-md-4 control-label"  path="password">PASSWORD</form:label>
 <div class="col-md-6">
 <form:input path="password" type="password" class="form-control"></form:input>
+<form:errors path="password" cssStyle="color: #ff0000" />
 </div>
 </div>
 <br>

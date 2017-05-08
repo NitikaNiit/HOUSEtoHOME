@@ -30,8 +30,8 @@ body {
 
  <div class="form-group">
 <%-- <label for="sid"></label>
-<form:hidden  path=""/>
-</div> --%>
+<form:hidden  path=""/> --%>
+</div> 
 
 
 <div class="form-group" >

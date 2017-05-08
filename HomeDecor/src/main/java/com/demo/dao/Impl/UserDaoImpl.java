@@ -16,13 +16,6 @@ public class UserDaoImpl implements UserDao {
 @Autowired
 private SessionFactory sessionFactory;
 
-	/*public List<Users> getUsers() {
-		Session session=sessionFactory.openSession();
-		Query query = session.createQuery("from Users");
-		List<Users> users =query.list();
-		return users;
-	}
-*/
 	public Users saveOrUpdateUsers(Users users) {
 		System.out.println(users.getUsersId());
 		Session session=sessionFactory.openSession();

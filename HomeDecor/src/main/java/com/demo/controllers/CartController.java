@@ -15,12 +15,14 @@ import com.demo.service.CartService;
 import com.demo.service.CustomerService;
 
 @Controller
+
 public class CartController {
+	
 	@Autowired
 	private CustomerService customerService;
 	@Autowired
 	private CartService cartService;
-
+	
 	@RequestMapping("/cart/getCartId" )
 	public String getCartId(Model model) {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -28,29 +30,16 @@ public class CartController {
 		Customer customer = customerService.getCustomerByUsername(username);
 		Cart cart = customer.getCart();
 		int cartId = cart.getCartId();
+		System.out.println("cart id in CartController is" + cartId);
 		model.addAttribute("cartId", cartId);
 		return "cart";
 	}
 
 	@RequestMapping("/cart/getCart/{cartId}")
-	public @ResponseBody Cart getCart(@PathVariable int cartId) {
+	public @ResponseBody Cart getCartRedirect(@PathVariable int cartId) {
 		System.out.println("cart id in CartController is" + cartId);
 		Cart cart = cartService.getCart(cartId);
 		return cart;
 	}
-	
-	/*@RequestMapping("/cart/getCart")
-	public String getCartId(@AuthenticationPrincipal User activeUser) {
-		Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
-		int cartId = customer.getCart().getCartId();
-		return "redirect:/cart/getCart/" + cartId;
-	}
 
-	@RequestMapping("/cart/getCart/{cartId}")
-	public String getCart(@PathVariable int cartId, Model model) {
-		model.addAttribute("cartId", cartId);
-		return "cart";
-	}*/
-	
-	
 }

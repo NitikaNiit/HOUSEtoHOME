@@ -1,5 +1,9 @@
 package com.demo.controllers;
 
+import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -78,10 +82,23 @@ public class CustomerController {
 	}
 	//we use  @modelattribute(command name) to read the values that user has entered in the jsp page.
 	@RequestMapping("/registerCustomer")
-	public String addCustomer(@ModelAttribute("customer") Customer customer, BindingResult result) {
-		
+	public String addCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model model) {
+		List<Customer> customerList = customerService.getAllCustomers();
+		for (int i=0; i< customerList.size(); i++){
+            if(customer.getEmail().equals(customerList.get(i).getEmail())){
+                model.addAttribute("emailMsg", "Email already exists");
+
+                return "signUpForm";
+            }
+
+            if(customer.getUsername().equals(customerList.get(i).getUsername())){
+                model.addAttribute("usernameMsg", "Username already exists");
+
+                return "signUpForm";
+            }
+        }
 		customerService.saveOrUpdateCustomer(customer);
-		return "redirect:/login";
+		return "registerCustomerSuccess";
 	}
 	
 }

@@ -12,10 +12,6 @@ public class BillingServiceImpl implements BillingService {
 	@Autowired
 private BillingDao billingDao;
 	
-	/*public List<BillingAddress> getBillingAddress() {
-		return billingDao.getBillingAddress();
-	}*/
-
 	public BillingAddress saveOrUpdateBillingAddress(BillingAddress billing) {
 		return billingDao.saveOrUpdateBillingAddress(billing);
 	}

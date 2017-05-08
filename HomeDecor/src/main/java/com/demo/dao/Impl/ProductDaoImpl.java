@@ -56,5 +56,14 @@ private SessionFactory sessionFactory;
 		
 	}
 	
+	 public void editProduct (Product product){
+	        Session session = sessionFactory.openSession();
+	        System.out.println("Id of the product in dao is " + product.getId());
+	        session.update(product);
+	        session.flush();
+	        session.close();
+	    }
+
+	
 	
 }

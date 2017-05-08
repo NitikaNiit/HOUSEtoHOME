@@ -12,10 +12,6 @@ public class ShippingServiceImpl implements ShippingService {
 	@Autowired
 private ShippingDao shippingDao;
 	
-	/*public List<ShippingAddress> getShippingAddress() {
-		return shippingDao.getShippingAddress();
-	}*/
-
 	public ShippingAddress saveOrUpdateShippingAddress(ShippingAddress shipping) {
 		return shippingDao.saveOrUpdateShippingAddress(shipping);
 	}

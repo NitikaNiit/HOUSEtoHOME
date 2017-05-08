@@ -1,8 +1,12 @@
 package com.demo.model;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.demo.model.Customer;
 @Entity
-public class BillingAddress {
+public class BillingAddress implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -14,8 +18,19 @@ public class BillingAddress {
     private String country;
     private String zipCode;
 
+
+    @OneToOne
+    private Customer customer;
  
-    public int getBillsId() {
+    public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public int getBillsId() {
 		return billsId;
 	}
 

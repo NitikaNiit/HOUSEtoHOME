@@ -15,13 +15,6 @@ public class BillingDaoImpl implements BillingDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	/*public List<BillingAddress> getBillingAddress() {
-		Session session=sessionFactory.openSession();
-		Query query = session.createQuery("from BillingAddress");
-		List<BillingAddress> billing =query.list();
-		return billing;
-	}*/
-
 	public BillingAddress saveOrUpdateBillingAddress(BillingAddress billing) {
 		Session session=sessionFactory.openSession();
 		session.saveOrUpdate(billing); //insert into BillingAdress values (.....)
