@@ -15,17 +15,16 @@ import com.demo.service.CartService;
 import com.demo.service.CustomerService;
 
 @Controller
-
 public class CartController {
-	
+
 	@Autowired
 	private CustomerService customerService;
 	@Autowired
 	private CartService cartService;
-	
-	@RequestMapping("/cart/getCartId" )
+
+	@RequestMapping("/cart/getCartId")
 	public String getCartId(Model model) {
-		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = user.getUsername();
 		Customer customer = customerService.getCustomerByUsername(username);
 		Cart cart = customer.getCart();
@@ -37,7 +36,7 @@ public class CartController {
 
 	@RequestMapping("/cart/getCart/{cartId}")
 	public @ResponseBody Cart getCartRedirect(@PathVariable int cartId) {
-		System.out.println("cart id in CartController is" + cartId);
+		System.out.println("cart id in Controller is" + cartId);
 		Cart cart = cartService.getCart(cartId);
 		return cart;
 	}

@@ -1,8 +1,8 @@
 <%@include file="header.jsp" %>
 <style>
 body { 
-    background: linear-gradient(to bottom, #ffffcc 10%, #669999 50%);
-
+    /* background: linear-gradient(to bottom, #ffffcc 10%, #669999 50%) */;
+	 background-color: #f2f6f9; 
 	padding-top:100px; 
 	}
 </style>

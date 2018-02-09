@@ -31,7 +31,7 @@ body {
 	<!-- Top content -->
 	<div class="top-content">
 		<div class="container">
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-sm-8 col-sm-offset-2 text">
 					<h1>
 						<strong>HousetoHome</strong> Login Form
@@ -43,7 +43,7 @@ body {
 					</div>
 
 				</div>
-			</div>
+			</div> -->
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3 form-box">
 					<div class="form-top">

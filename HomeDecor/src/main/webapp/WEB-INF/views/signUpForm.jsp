@@ -8,7 +8,7 @@
 <title>SignUp</title>
 <style>
 body { 
-	background-color:#d9d9d9 ;
+background-color: #f2f6f9; ;
 	padding-top:80px;
 	};
 
@@ -176,4 +176,5 @@ body {
 </div>
 </div>
 </body>
+
 </html>

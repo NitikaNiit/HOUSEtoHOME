@@ -10,10 +10,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="<c:url value="/resources/Images/icon.ico"/>">
-<!--  <link rel="stylesheet" href="">
-<script src="resources/Bootstrap/css/bootstrap.min.css"></script>
-<script src="resources/Bootstrap/js/bootstrap.min.js"></script>-->
-
+ <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css"/>">
+<%-- <script src="<c:url value="/resources/css/bootstrap.min.css"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+ --%>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 <script
@@ -34,6 +34,8 @@
 	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/main.css" />">
@@ -70,9 +72,9 @@
 					<ul class="nav navbar-nav ">
 						<li class="active"><a href="<c:url value="/HOME"/>"><i
 								class="fa fa-home"></i></a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="<c:url value="/CONTACT" />" data-toggle="modal"
-							data-target="#contactmodal">Contact Us</a></li>
+						<!-- <li><a href="#">About</a></li> -->
+						<%-- <li><a href="<c:url value="/CONTACT" />" data-toggle="modal"
+							data-target="#contactmodal">Contact Us</a></li> --%>
 						<%-- <li><a href="<c:url value="/PRODUCTS" />">Products</a></li> --%>
 						<li><a href="<c:url value="/prodlist" />">Products</a></li>
 						
@@ -92,7 +94,7 @@
 											Supplier</a></li>
 								</ul></li>
 					
-
+				
 						
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">VIEW <span class="caret"></span></a>
@@ -106,7 +108,23 @@
 							</ul></li>
 								</c:if>
 
+						<li class="dropdown">
+						<a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Select by category<span class="caret"></span></a>  
+							<ul class="dropdown-menu">
+								<li>
+									<c:forEach items="${categories}" var="c">
+									<c:url value="/searchbycategory?searchCondition=${c.categoryDetails }" var="url">
+									</c:url>
+									<a href="${url}">${c.categoryDetails}</a>
+									</c:forEach>
+									<c:url value="/searchbycategory?searchCondition=All" var="url1"></c:url>
+									<a href="${url1}">All</a>
+							</ul>
+						</li>
+						
 					</ul>
+						
 					<ul class="nav navbar-nav navbar-right">
 						<c:if test="${pageContext.request.userPrincipal.name != null}">
 							<li><a>Welcome:
@@ -119,8 +137,11 @@
 
 						</c:if>
 						
+						<c:if test="${pageContext.request.userPrincipal.name!= null}">
 						<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
 						<li><a href="<c:url value="/cart/getCartId"/>" class="glyphicon glyphicon-shopping-cart"></a></li>
+						</c:if>
+						
 						</c:if>
 						
 						<c:if test="${pageContext.request.userPrincipal.name == null}">

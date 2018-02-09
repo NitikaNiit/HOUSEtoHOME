@@ -57,7 +57,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 		session.saveOrUpdate(billingAddress);
 		session.saveOrUpdate(shippingAddress);
-		session.saveOrUpdate(users);
+		session.saveOrUpdate(users);	
 		session.saveOrUpdate(authority);
 		session.saveOrUpdate(customer);// insert into customer values (.....)
 		session.saveOrUpdate(cart);

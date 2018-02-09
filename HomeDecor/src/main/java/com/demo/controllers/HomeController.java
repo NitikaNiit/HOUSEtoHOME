@@ -1,20 +1,31 @@
 package com.demo.controllers;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.demo.service.CategoryService;
+
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private CategoryService categoryService;
+	
 	@RequestMapping("/")
-	public String homepage()
+	public String homepage(HttpSession session)
 	{
+		session.setAttribute("categories", categoryService.getCategories());
 		return "home";
 	}
 	@RequestMapping("/HOME")
-	public String home()
+	public String home(HttpSession session)
 	{
+		session.setAttribute("categories", categoryService.getCategories());
 		return "home";
 	}
 	/*@RequestMapping("/CONTACT")

@@ -16,6 +16,7 @@ import com.demo.model.Product;
 public class ProductDaoImpl implements ProductDao {
 @Autowired
 private SessionFactory sessionFactory;
+
 	public ProductDaoImpl(){
 		System.out.println("CREATING INSTANCE FOR PRODUCTDAOIMPL");
 	}

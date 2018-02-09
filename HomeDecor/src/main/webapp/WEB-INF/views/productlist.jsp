@@ -2,24 +2,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page isELIgnored="false"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Browse Products</title>
-
 <style>
-
 body { 
-     background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%); 
-
+    /*  background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%); 
+ */	background-color: #f2f6f9;
 	padding-top:80px; 
 	}
 </style>
-</head>
-<body>
+
+<script>
+
+    $(document).ready(function(){
+        var searchCondition = '${searchCondition}';
+
+        $('.table').DataTable({
+        	 "lengthMenu": [[1,2,3,5,10, -1], [1,2,3,5,10, "All"]],
+            "oSearch" : {"sSearch": searchCondition}
+        })
+    });
+</script>
 	<div class="container">
 	<h3>Product List</h3>
 	 <div  class="table-reponsive">
@@ -37,6 +38,9 @@ body {
 					<th>Quantity</th>
 					<th>Category</th>
 					<th>Supplier</th>
+					<th></th>
+					<th></th>
+					
 				</tr>
 			</thead>
 			<c:forEach var="pd" items="${productList}">
@@ -71,10 +75,14 @@ body {
 				    </td>
 				   
 					</c:if>
+					<c:if test="${pageContext.request.userPrincipal.name !=null}"> 
+					 <c:if test="${pageContext.request.userPrincipal.name != 'admin'}"> 
 					<td>
 					<a href="<spring:url value="/favorite/${pd.id }" />">
-					<img src="<c:url value="/resources/Images/fav.png" />" /></a>
+					<img src="<c:url value="/resources/Images/fav.png" />" style="width:50px; height:50px"/></a>
 					</td>
+					</c:if>
+					</c:if>
 									
 				</tr>
 			</c:forEach>
@@ -82,7 +90,7 @@ body {
 </div>
 </div>
 	
-</body>
+
 <br/>
-</html>
-<%@ include file="footer.jsp"%>
+
+<%@include file="footer.jsp" %>

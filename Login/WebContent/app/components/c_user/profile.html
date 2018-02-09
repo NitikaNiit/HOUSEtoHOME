@@ -1,0 +1,71 @@
+<div class="generic-container" ng-controller="UserController as ctrl">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span class="lead">My Profile </span>
+				</div>
+				<div class="formcontainer">
+							<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-2 control-label" for="id">ID:</label>  
+								<div class="col-md-7">
+									{{currentUser.id}}
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-2 control-label" for="name">Name:</label>  
+								<div class="col-md-7">
+									{{currentUser.name}}
+								</div>
+							</div>
+						</div>
+						
+						
+
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-2 control-label" for="password">Password:</label>
+								<div class="col-md-7">
+									{{currentUser.password}}
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-2 control-label" for="mobile">Mobile:</label>
+								<div class="col-md-7">
+									{{currentUser.mobile}}
+
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="form-group col-md-12">
+								<label class="col-md-2 control-label" for="address">Address:</label>
+								<div class="col-md-7">
+								{{currentUser.address}}
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group col-md-12">
+								<a href="#!/editProfile"><span class="glyphicon glyphicon-pencil">edit</span></a>	
+							</div>
+						</div>
+						
+
+				</div>
+			</div>
+
+		</div>
+
+

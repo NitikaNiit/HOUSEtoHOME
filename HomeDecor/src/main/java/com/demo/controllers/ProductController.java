@@ -13,8 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.model.Product;
+import com.demo.service.CategoryService;
 import com.demo.service.ProductService;
 
 @Controller
@@ -77,10 +79,22 @@ public class ProductController {
 	@RequestMapping("/prodlist")
 	public String getAllProducts(Model model) {
 		List<Product> products = productService.getAllProducts();
-		// Assigning list of products to model attribute products
+		// Assigning list of products to model attribute products=List
 		model.addAttribute("productList", products);
 		return "productlist";
 	}
+   
+    @RequestMapping("/searchbycategory")
+    public String selectByCategory(@RequestParam String searchCondition, Model model)
+    {
+    	
+    	model.addAttribute("productList",productService.getAllProducts());
+    	if(searchCondition.equals("All"))
+    		model.addAttribute("searchCondition","");
+    	else
+    		model.addAttribute("searchCondition",searchCondition);
+    		return "productlist";
+	} 
 
 	@RequestMapping("/viewproduct/{id}")
 	public String viewProduct(@PathVariable int id, Model model) {

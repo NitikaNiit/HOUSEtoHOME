@@ -1,4 +1,4 @@
-<footer>
+<!-- <footer>
 <div class="container">
 <div class="row">
 <div class="col-sm-2">
@@ -24,12 +24,16 @@
 <li><a href="">Google Plus</a></li>
 </ul>
 </div>
-<!-- <div class="col-sm-2">
+<div class="col-sm-2">
 <h6>Coded with <span class="glyphicon glyphicon-heart"></span> by Nitika</h6>
-</div> -->
+</div>
 
 </div>
 </div>
+</footer> -->
+<footer>
+<center><p>&copy; 2016 HomeDecor, Inc. &middot;<a href="<c:url value="/CONTACT" />" data-toggle="modal"
+							data-target="#contactmodal">Contact Us</a> <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></p></center>
 </footer>
 
 </body>

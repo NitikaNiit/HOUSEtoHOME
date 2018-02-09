@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="app/assets/bootstrap/css/bootstrap.min.css">
+<script src="app/assets/js/angular.min.js"></script>
+<script src="app/assets/js/angular-route.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-cookies.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="UserController as ctrl">
+
+	<div ng-show="currentUser.id==undefined">
+		<h1>
+			<a href="#!/register">Register</a> <a href="#!/login">Login</a>
+		</h1>
+
+	</div>
+	<ul style="list-style: none;">
+	<li class="dropdown">
+	<a class="dropdown-toggle"
+		data-toggle="dropdown" href="#">JOB <span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li><a href="#!/job">Post a Job</a></li>
+			<li><a href="#!/searchJob">Search Job</a></li>
+			<li ><a href="#!/view_applied_jobs">View AppliedJobs</a></li>
+		</ul>
+	</li>
+	</ul>
+	
+	<ul style="list-style: none;">
+	<li class="dropdown">
+	<a class="dropdown-toggle"
+		data-toggle="dropdown" href="#">Friend <span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li><a href="#!/search_friend">Search Friend</a></li>
+			<li><a href="#!/view_friend">Search Friend</a></li>
+			<!-- <li><a href="#!/searchJob">Search Job</a></li>
+			<li ><a href="#!/view_applied_jobs">View AppliedJobs</a></li> -->
+		</ul>
+	</li>
+	</ul>
+	
+	<br />
+	<br />
+	<div style="font-weight: bold; color: Red;"
+		ng-show="currentUser.id!==undefined">
+		<a href="#!/profile">Welcome:{{currentUser.id}}</a>:
+		{{currentUser.role}} <a href="#" ng-click="ctrl.logout()">Logout</a>
+
+	</div>
+	<div ng-view></div>
+</body>
+<script src="app/assets/js/jquery-1.11.1.min.js"></script>
+<script src="app/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="app/app.js"></script>
+<script src="app/components/c_user/UserController.js"></script>
+<script src="app/components/c_user/UserService.js"></script>
+<script src="app/components/c_friend/FriendController.js"></script>
+<script src="app/components/c_friend/FriendService.js"></script>
+<script src="app/components/c_job/JobController.js"></script>
+<script src="app/components/c_job/JobService.js"></script>
+
+</html>

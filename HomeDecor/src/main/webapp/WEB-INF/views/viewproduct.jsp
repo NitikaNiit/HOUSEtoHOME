@@ -1,7 +1,10 @@
 <%@ include file="header.jsp"%>
+ <link href="<c:url value="/resources/css/tyr.css" />" rel="stylesheet">
+ <script src="<c:url value="/resources/js/tyr.js"/>"></script>
 <style>
 body {
-	background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%);
+	/* background: linear-gradient(to bottom, #ffffcc 1%, #669999 100%); */
+	background-color: #f2f6f9; 
 	padding-top: 80px;
 }
 
@@ -9,19 +12,14 @@ body {
 	margin-top: 45px;
 }
 
-footer {
-	background: #333;
-	color: #eee;
-	font-size: 11px;
-	padding: 30px;
-}
+
 
 ul.unstyled {
 	list-style: none;
 	padding: 0;
 }
 </style>
-<body data-ng-app="app" ng-controller="ProductController">
+<body ng-app="app" ng-controller="ProductController">
 	<div class="container-wrapper">
 		<div class="container">
 			<div class="page-header">
@@ -34,13 +32,14 @@ ul.unstyled {
 
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-6 magnify">
+						<div class="large" style="background:url('../resources/Images/${product.id }.jpg') no-repeat; "  ></div>
 						<c:url var="src" value="/resources/Images/${product.id }.jpg"></c:url>
-						<img src="${src }" alt="image" style="width: 100%" />
+						<img class="small" src="${src }" alt="image" style="width: 200px" />
 						<%-- <img src="<c:url value="/resources/Images/${product.id}.jpg" />" alt="image" style="width:100%"/> --%>
 					</div>
-					<div class="col-md-1"></div>
-					<div class="col-md-5">
+					<div class="col-md-2"></div>
+					<div class="col-md-4">
 						<h3>${product.name}</h3>
 						<p>${product.description}</p>
 						<p>
@@ -50,7 +49,7 @@ ul.unstyled {
 						<%-- <c:url value="/addCartItem/${product.id }" var="url"></c:url> --%>
 						<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
 							<a href="#" class="btn btn-warning btn-lg"
-								data-ng-click="addToCart(${product.id })"> <span
+								ng-click="addToCart(${product.id })"> <span
 								class="glyphicon glyphicon-shopping-cart"></span>Add to Cart
 
 							</a>

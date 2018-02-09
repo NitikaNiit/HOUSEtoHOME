@@ -13,7 +13,7 @@
 <title>Edit Product</title>
 <style>
 body { 
-	background-color: ;
+	background-color: #f2f6f9;
 	padding-top:80px;
 	}
 </style>
